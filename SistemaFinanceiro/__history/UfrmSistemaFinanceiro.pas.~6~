@@ -33,7 +33,6 @@ type
     lblConfigSistema: TLabel;
     lblNavegador: TLabel;
     btnUsuario: TButton;
-    procedure btnUsuarioClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,19 +44,6 @@ var
 
 implementation
 
-uses
-  UfrmCadastroSimples;
-
 {$R *.dfm}
-
-procedure TSistemaFinanceiro.btnUsuarioClick(Sender: TObject);
-begin
-    frmCadastroSimples := TfrmCadastroSimples.Create(nil);
-    try
-      frmCadastroSimples.ShowModal;
-    finally
-      FreeAndNil(frmCadastroSimples);
-    end;
-end;
 
 end.

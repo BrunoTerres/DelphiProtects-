@@ -1717,6 +1717,5 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Height = 25
     Caption = 'btnUsuario'
     TabOrder = 0
-    OnClick = btnUsuarioClick
   end
 end

@@ -46,18 +46,13 @@ var
 implementation
 
 uses
-  UfrmCadastroSimples;
+
 
 {$R *.dfm}
 
 procedure TSistemaFinanceiro.btnUsuarioClick(Sender: TObject);
 begin
-    frmCadastroSimples := TfrmCadastroSimples.Create(nil);
-    try
-      frmCadastroSimples.ShowModal;
-    finally
-      FreeAndNil(frmCadastroSimples);
-    end;
+
 end;
 
 end.
