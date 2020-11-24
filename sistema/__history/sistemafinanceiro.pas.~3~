@@ -1,0 +1,29 @@
+unit sistemafinanceiro;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr, Data.DBXMySQL,
+  FireDAC.Phys.IBDef, Data.DBXFirebird, FireDAC.Stan.Intf, FireDAC.Phys,
+  FireDAC.Phys.IBBase, FireDAC.Phys.IB;
+
+type
+  TDataModule2 = class(TDataModule)
+    FDPhysIBDriverLink1: TFDPhysIBDriverLink;
+    conMySQL: TSQLConnection;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule2: TDataModule2;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

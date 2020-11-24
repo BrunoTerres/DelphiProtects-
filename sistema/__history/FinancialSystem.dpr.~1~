@@ -1,0 +1,14 @@
+program FinancialSystem;
+
+uses
+  Vcl.Forms,
+  UfrmDashboard in 'UfrmDashboard.pas' {frmDashboard};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmDashboard, frmDashboard);
+  Application.Run;
+end.

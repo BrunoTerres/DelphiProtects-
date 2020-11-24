@@ -1,0 +1,32 @@
+unit UfrmDashboard;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.StdCtrls;
+
+type
+  TfrmDashboard = class(TForm)
+    lblRegister: TLabel;
+    imgUser: TImage;
+    imgReceivePayment: TImage;
+    imgPayment: TImage;
+    imgCashier: TImage;
+    imgConsultationReceive: TImage;
+    imgConsultaPagamentos: TImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmDashboard: TfrmDashboard;
+
+implementation
+
+{$R *.dfm}
+
+end.

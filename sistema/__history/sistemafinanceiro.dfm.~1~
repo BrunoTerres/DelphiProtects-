@@ -1,0 +1,9 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 387
+  Width = 555
+  object conMySQLFinanceiro: TSQLConnection
+    Left = 40
+    Top = 24
+  end
+end

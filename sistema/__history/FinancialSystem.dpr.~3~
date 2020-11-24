@@ -1,0 +1,18 @@
+program FinancialSystem;
+
+uses
+  Vcl.Forms,
+  UfrmDashboard in 'UfrmDashboard.pas' {frmDashboard},
+  Vcl.Themes,
+  Vcl.Styles,
+  FinancialSystem in 'FinancialSystem.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmDashboard, frmDashboard);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.
