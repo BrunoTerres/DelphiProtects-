@@ -12,7 +12,7 @@ type
     imgUsuario: TImage;
     lblCadastros: TLabel;
     imgPagamentosRecebidos: TImage;
-    imgPagamento: TImage;
+    imgLancamentoCaixa: TImage;
     imgConsultaPagamentos: TImage;
     imgConsultarPagamentos: TImage;
     lblRelatorios: TLabel;
@@ -33,6 +33,9 @@ type
     lblConfigSistema: TLabel;
     lblNavegador: TLabel;
     btnUsuario: TButton;
+    blnhn1: TBalloonHint;
+    imgContasPagar: TImage;
+    lblRecebimentos: TLabel;
     procedure btnUsuarioClick(Sender: TObject);
   private
     { Private declarations }
@@ -59,5 +62,6 @@ begin
       FreeAndNil(frmCadastroSimples);
     end;
 end;
+
 
 end.

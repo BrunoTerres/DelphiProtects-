@@ -1,0 +1,97 @@
+unit UfrmSistemaFinanceiro;
+
+interface
+
+uses
+  //Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  //Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  //Vcl.ExtCtrls;
+
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TSistemaFinanceiro = class(TForm)
+    lblRegister: TLabel;
+    imgUser: TImage;
+    imgReceivePayment: TImage;
+    imgPayment: TImage;
+    imgCashier: TImage;
+    imgConsultationReceive: TImage;
+    lblSystemReport: TLabel;
+    imgPaymentReport: TImage;
+    imgBrowser: TImage;
+    imgSystemConfig: TImage;
+    imgPaymentReceiveReport: TImage;
+    imgCashierReport: TImage;
+    lblSystem: TLabel;
+    imgConsultaPagamentos: TImage;
+    blnhn1: TBalloonHint;
+    statBar: TStatusBar;
+    tmr1: TTimer;
+    btn1: TBitBtn;
+    procedure tmr1Timer(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn1Click(Sender: TObject);
+    procedure imgReceivePaymentClick(Sender: TObject);
+    {imgUsuario: TImage;
+    lblCadastros: TLabel;
+    imgPagamentosRecebidos: TImage;
+    imgPagamento: TImage;
+    imgConsultaPagamentos: TImage;
+    imgConsultarPagamentos: TImage;
+    lblRelatorios: TLabel;
+    lblUsuarios: TLabel;
+    lblReceberPagamento: TLabel;
+    lblPagamento: TLabel;
+    lblConsultaPagamentos: TLabel;
+    lblRegistro: TLabel;
+    imgRelatoriodePagamento: TImage;
+    imgRelatorioRecebimento: TImage;
+    imgRelatorioCaixa: TImage;
+    lblRelatorioPagamento1: TLabel;
+    lblRelatorioPagamento: TLabel;
+    lblRelatorioRecebimento: TLabel;
+    lblRelatorioCaixa: TLabel;
+    imgConfigSistema: TImage;
+    imgNavegador: TImage;
+    lblConfigSistema: TLabel;
+    lblNavegador: TLabel;
+    btnUsuario: TButton;
+    procedure btnUsuarioClick(Sender: TObject);   }
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  SistemaFinanceiro: TSistemaFinanceiro;
+
+implementation
+
+uses
+  UfrmCadastroSimples;
+
+{$R *.dfm}
+
+procedure TSistemaFinanceiro.btnUsuarioClick(Sender: TObject);
+begin
+    frmCadastroSimples := TfrmCadastroSimples.Create(nil);
+    try
+      frmCadastroSimples.ShowModal;
+    finally
+      FreeAndNil(frmCadastroSimples);
+    end;
+end;
+
+procedure TfrmSistemaFinanceiro.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if Application.MessageBox('Deseja Realmente Sair?' , 'Informação', MB_YESNO+MB_ICONQUESTION) = mrYes then
+  Application.Terminate
+  else
+  Abort;
+end;
+
+end.
