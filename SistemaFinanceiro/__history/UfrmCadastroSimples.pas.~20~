@@ -40,7 +40,6 @@ type
     procedure actCancelarExecute(Sender: TObject);
     procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure tsbPesquisaShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -94,8 +93,7 @@ end;
 
 procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);
 begin
-  TClientDataSet(dsTabela.DataSet).Close;
-  TClientDataSet(dsTabela.DataSet).Open;
+//
 end;
 
 procedure TfrmCadastroSimples.actSalvarExecute(Sender: TObject);
@@ -106,19 +104,14 @@ end;
 procedure TfrmCadastroSimples.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  TClientDataSet(dsTabela.DataSet).Cancel;
-  TClientDataSet(dsTabela.DataSet).Close;
+  TClientDataSet(dsTabela).Cancel;
+  TClientDataSet(dsTabela).Close;
 end;
 
 procedure TfrmCadastroSimples.FormKeyPress(Sender: TObject; var Key: Char);
 begin
 if Key = #27 then
   Close;
-end;
-
-procedure TfrmCadastroSimples.tsbPesquisaShow(Sender: TObject);
-begin
-  PageControl1.ActivePage := tsbPesquisa;
 end;
 
 end.

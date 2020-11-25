@@ -40,7 +40,6 @@ type
     procedure actCancelarExecute(Sender: TObject);
     procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure tsbPesquisaShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -114,11 +113,6 @@ procedure TfrmCadastroSimples.FormKeyPress(Sender: TObject; var Key: Char);
 begin
 if Key = #27 then
   Close;
-end;
-
-procedure TfrmCadastroSimples.tsbPesquisaShow(Sender: TObject);
-begin
-  PageControl1.ActivePage := tsbPesquisa;
 end;
 
 end.

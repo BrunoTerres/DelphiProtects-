@@ -55,18 +55,15 @@ object frmCadastroSimples: TfrmCadastroSimples
     Top = 0
     Width = 703
     Height = 232
-    ActivePage = ts1
+    ActivePage = tsbPesquisa
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = -8
-    ExplicitTop = -6
     object ts1: TTabSheet
       Caption = 'Cadastro'
     end
     object tsbPesquisa: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 1
-      OnShow = tsbPesquisaShow
       object dbgrd1: TDBGrid
         Left = 0
         Top = 48
