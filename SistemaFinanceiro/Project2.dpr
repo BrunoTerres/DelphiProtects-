@@ -13,6 +13,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TSistemaFinanceiro, SistemaFinanceiro);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfrmCadastroSimples, frmCadastroSimples);
   Application.Run;
 end.

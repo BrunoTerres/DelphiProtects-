@@ -20,9 +20,6 @@ object frmCadastroSimples: TfrmCadastroSimples
     Width = 703
     Height = 19
     Panels = <>
-    ExplicitLeft = 328
-    ExplicitTop = 160
-    ExplicitWidth = 0
   end
   object pnl1: TPanel
     Left = 0
@@ -31,7 +28,6 @@ object frmCadastroSimples: TfrmCadastroSimples
     Height = 48
     Align = alBottom
     TabOrder = 1
-    ExplicitWidth = 635
     object acttb1: TActionToolBar
       Left = 1
       Top = 1
@@ -51,8 +47,6 @@ object frmCadastroSimples: TfrmCadastroSimples
       Font.Style = []
       ParentFont = False
       Spacing = 0
-      ExplicitWidth = 633
-      ExplicitHeight = 86
     end
   end
   object pgcPesquisa: TPageControl
@@ -63,17 +57,12 @@ object frmCadastroSimples: TfrmCadastroSimples
     ActivePage = tsbPesquisa
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 635
     object ts1: TTabSheet
       Caption = 'Cadastro'
-      ExplicitLeft = 8
-      ExplicitTop = 28
-      ExplicitWidth = 627
     end
     object tsbPesquisa: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 1
-      ExplicitWidth = 627
       object dbgrd1: TDBGrid
         Left = 0
         Top = 48
@@ -108,13 +97,13 @@ object frmCadastroSimples: TfrmCadastroSimples
           end
           item
             Action = actExcluir
-            Caption = 'E&xcluir'
+            Caption = '&Excluir'
             ImageIndex = 15
             ShortCut = 116
           end
           item
             Action = actEditar
-            Caption = '&Editar'
+            Caption = 'E&ditar'
             ImageIndex = 9
             ShortCut = 115
           end
@@ -126,12 +115,6 @@ object frmCadastroSimples: TfrmCadastroSimples
             Caption = '&Salvar'
             ImageIndex = 12
             ShortCut = 117
-          end
-          item
-            Action = actCancelar
-            Caption = '&Cancelar'
-            ImageIndex = 13
-            ShortCut = 118
           end
           item
             Caption = '-'
@@ -167,44 +150,55 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Inserir'
       ImageIndex = 3
       ShortCut = 114
+      OnExecute = actInserirExecute
     end
     object actEditar: TAction
       Caption = 'Editar'
+      Enabled = False
       ImageIndex = 9
       ShortCut = 115
+      OnExecute = actEditarExecute
     end
     object actExcluir: TAction
       Caption = 'Excluir'
+      Enabled = False
       ImageIndex = 15
       ShortCut = 116
+      OnExecute = actExcluirExecute
     end
     object actSalvar: TAction
       Caption = 'Salvar'
+      Enabled = False
       ImageIndex = 12
       ShortCut = 117
+      OnExecute = actSalvarExecute
     end
     object actCancelar: TAction
       Caption = 'Cancelar'
+      Enabled = False
       ImageIndex = 13
       ShortCut = 118
+      OnExecute = actCancelarExecute
+      OnUpdate = actCancelarUpdate
     end
     object actPesquisar: TAction
       Caption = 'Pesquisar'
       ImageIndex = 10
       ShortCut = 112
+      OnExecute = actPesquisarExecute
     end
     object actImprimir: TAction
       Caption = 'Imprimir'
+      Enabled = False
       ImageIndex = 14
       ShortCut = 120
-    end
-    object Action1: TAction
-      Caption = 'Action1'
+      OnExecute = actImprimirExecute
     end
     object actFechar: TAction
       Caption = 'Fechar'
       ImageIndex = 5
       ShortCut = 16499
+      OnExecute = actFecharExecute
     end
   end
   object ilCadastro: TImageList
@@ -213,7 +207,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 312
     Top = 152
     Bitmap = {
-      494C010110001800200020002000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010110001800240020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2857,6 +2851,13 @@ object frmCadastroSimples: TfrmCadastroSimples
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000}
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000}
+  end
+  object ds1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 200
+    Top = 112
   end
 end
