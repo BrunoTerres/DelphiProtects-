@@ -29,7 +29,6 @@ type
     actPesquisar: TAction;
     actImprimir: TAction;
     actFechar: TAction;
-    ds1: TClientDataSet;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actInserirExecute(Sender: TObject);
     procedure actExcluirExecute(Sender: TObject);
@@ -40,6 +39,7 @@ type
     procedure actEditarExecute(Sender: TObject);
     procedure actCancelarExecute(Sender: TObject);
     procedure actCancelarUpdate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -50,6 +50,9 @@ var
   frmCadastroSimples: TfrmCadastroSimples;
 
 implementation
+
+uses
+  dbsistema;
 
 {$R *.dfm}
 
@@ -96,6 +99,13 @@ end;
 procedure TfrmCadastroSimples.actSalvarExecute(Sender: TObject);
 begin
 //
+end;
+
+procedure TfrmCadastroSimples.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  TClientDataSet(dsTabela).Cancel;
+  TClientDataSet(dsTabela).Close;
 end;
 
 procedure TfrmCadastroSimples.FormKeyPress(Sender: TObject; var Key: Char);

@@ -11,6 +11,7 @@ object frmCadastroSimples: TfrmCadastroSimples
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
@@ -82,6 +83,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     end
   end
   object dsTabela: TDataSource
+    DataSet = DataModule1.cdscaixa
     Left = 600
     Top = 24
   end
@@ -117,16 +119,21 @@ object frmCadastroSimples: TfrmCadastroSimples
             ShortCut = 117
           end
           item
+            Action = actCancelar
+            Caption = '&Cancelar'
+            ImageIndex = 13
+            ShortCut = 118
+          end
+          item
+            Caption = '-'
+          end
+          item
             Caption = '-'
           end
           item
             Action = actPesquisar
-            Caption = '&Pesquisar'
             ImageIndex = 10
             ShortCut = 112
-          end
-          item
-            Caption = '-'
           end
           item
             Action = actImprimir
@@ -185,7 +192,6 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Pesquisar'
       ImageIndex = 10
       ShortCut = 112
-      OnExecute = actPesquisarExecute
     end
     object actImprimir: TAction
       Caption = 'Imprimir'
@@ -207,7 +213,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 312
     Top = 152
     Bitmap = {
-      494C010110001800240020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800280020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2853,11 +2859,5 @@ object frmCadastroSimples: TfrmCadastroSimples
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
-  end
-  object ds1: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 200
-    Top = 112
   end
 end
