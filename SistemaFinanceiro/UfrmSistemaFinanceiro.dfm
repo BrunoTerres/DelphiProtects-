@@ -12,6 +12,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
   Font.Style = []
   OldCreateOrder = False
   ShowHint = True
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object imgUsuario: TImage
@@ -20,7 +21,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Width = 68
     Height = 73
     Hint = 'Cadastro de Usu'#225'rio'
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -182,7 +182,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Width = 65
     Height = 73
     Hint = 'Receber Conta'
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -348,7 +347,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Width = 65
     Height = 73
     Hint = 'Lan'#231'amentos no Caixa'
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -490,7 +488,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 224
     Width = 65
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -667,7 +664,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 224
     Width = 65
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -826,7 +822,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 168
     Width = 70
     Height = 24
-    CustomHint = blnhn1
     Caption = 'Usuarios'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -842,7 +837,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 168
     Width = 67
     Height = 24
-    CustomHint = blnhn1
     Align = alCustom
     Caption = 'Receber'
     Font.Charset = ANSI_CHARSET
@@ -859,7 +853,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 312
     Width = 111
     Height = 48
-    CustomHint = blnhn1
     Align = alCustom
     Caption = 'Lan'#231'amentos'#13#10'     Caixa'
     Font.Charset = ANSI_CHARSET
@@ -876,7 +869,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 312
     Width = 117
     Height = 48
-    CustomHint = blnhn1
     Align = alCustom
     Caption = '    Consulta'#13#10'Recebimentos'
     Font.Charset = ANSI_CHARSET
@@ -893,7 +885,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 312
     Width = 102
     Height = 48
-    CustomHint = blnhn1
     Align = alCustom
     Caption = '  Consulta '#13#10'Pagamentos'
     Font.Charset = ANSI_CHARSET
@@ -910,7 +901,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 472
     Width = 70
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1011,7 +1001,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 472
     Width = 65
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1110,7 +1099,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 472
     Width = 65
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1210,7 +1198,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
   end
   object lblRelatorioPagamento1: TLabel
     Left = 209
-    Top = 640
+    Top = 624
     Width = 91
     Height = 31
     Caption = 'Sistema'
@@ -1228,7 +1216,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 560
     Width = 94
     Height = 24
-    CustomHint = blnhn1
     Caption = 'Pagamento'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -1244,7 +1231,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 560
     Width = 117
     Height = 24
-    CustomHint = blnhn1
     Align = alCustom
     Caption = 'Recebimentos'
     Font.Charset = ANSI_CHARSET
@@ -1261,7 +1247,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 560
     Width = 46
     Height = 24
-    CustomHint = blnhn1
     Align = alCustom
     Caption = 'Caixa'
     Font.Charset = ANSI_CHARSET
@@ -1275,10 +1260,9 @@ object SistemaFinanceiro: TSistemaFinanceiro
   end
   object imgConfigSistema: TImage
     Left = 62
-    Top = 704
+    Top = 680
     Width = 70
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1432,10 +1416,9 @@ object SistemaFinanceiro: TSistemaFinanceiro
   end
   object imgNavegador: TImage
     Left = 230
-    Top = 704
+    Top = 688
     Width = 65
     Height = 73
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1748,8 +1731,8 @@ object SistemaFinanceiro: TSistemaFinanceiro
     ShowHint = False
   end
   object lblConfigSistema: TLabel
-    Left = 38
-    Top = 792
+    Left = 39
+    Top = 776
     Width = 109
     Height = 24
     Caption = 'Configura'#231#227'o'
@@ -1763,10 +1746,10 @@ object SistemaFinanceiro: TSistemaFinanceiro
     ShowHint = False
   end
   object lblNavegador: TLabel
-    Left = 222
-    Top = 792
+    Left = 218
+    Top = 767
     Width = 89
-    Height = 24
+    Height = 33
     Align = alCustom
     Caption = 'Navegador'#13#10
     Font.Charset = ANSI_CHARSET
@@ -1784,7 +1767,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Width = 65
     Height = 73
     Hint = 'Cadastro de Contas a Pagar'
-    CustomHint = blnhn1
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -2025,7 +2007,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 168
     Width = 47
     Height = 24
-    CustomHint = blnhn1
     Align = alCustom
     Caption = 'Pagar'
     Font.Charset = ANSI_CHARSET
@@ -2038,16 +2019,30 @@ object SistemaFinanceiro: TSistemaFinanceiro
     ShowHint = False
   end
   object btnUsuario: TButton
-    Left = 381
-    Top = 688
+    Left = 453
+    Top = 649
     Width = 75
     Height = 25
     Caption = 'btnUsuario'
     TabOrder = 0
     OnClick = btnUsuarioClick
   end
-  object blnhn1: TBalloonHint
-    Left = 376
-    Top = 752
+  object stat1: TStatusBar
+    Left = 0
+    Top = 816
+    Width = 548
+    Height = 19
+    Panels = <
+      item
+        Width = 50
+      end>
+    ExplicitLeft = 280
+    ExplicitTop = 432
+    ExplicitWidth = 0
+  end
+  object tmr1: TTimer
+    OnTimer = tmr1Timer
+    Left = 504
+    Top = 688
   end
 end

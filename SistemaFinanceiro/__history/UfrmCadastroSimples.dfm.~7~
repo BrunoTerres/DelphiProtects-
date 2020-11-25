@@ -1,0 +1,94 @@
+object frmCadastroSimples: TfrmCadastroSimples
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro'
+  ClientHeight = 299
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnKeyPress = FormKeyPress
+  PixelsPerInch = 96
+  TextHeight = 13
+  object stat1: TStatusBar
+    Left = 0
+    Top = 280
+    Width = 635
+    Height = 19
+    Panels = <>
+    ExplicitLeft = 328
+    ExplicitTop = 160
+    ExplicitWidth = 0
+  end
+  object pnl1: TPanel
+    Left = 0
+    Top = 232
+    Width = 635
+    Height = 48
+    Align = alBottom
+    TabOrder = 1
+    object acttb1: TActionToolBar
+      Left = 1
+      Top = 1
+      Width = 633
+      Height = 29
+      Caption = 'acttb1'
+      Color = clMenuBar
+      ColorMap.DisabledFontColor = 7171437
+      ColorMap.HighlightColor = clWhite
+      ColorMap.BtnSelectedFont = clBlack
+      ColorMap.UnusedColor = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      Spacing = 0
+      ExplicitLeft = 240
+      ExplicitTop = 8
+      ExplicitWidth = 150
+    end
+  end
+  object pgcPesquisa: TPageControl
+    Left = 0
+    Top = 0
+    Width = 635
+    Height = 232
+    ActivePage = tsbPesquisa
+    Align = alClient
+    TabOrder = 2
+    object ts1: TTabSheet
+      Caption = 'Cadastro'
+      ExplicitLeft = 8
+      ExplicitTop = 28
+    end
+    object tsbPesquisa: TTabSheet
+      Caption = 'Pesquisa'
+      ImageIndex = 1
+      object dbgrd1: TDBGrid
+        Left = 0
+        Top = 48
+        Width = 627
+        Height = 156
+        Align = alBottom
+        DataSource = dsTabela
+        DrawingStyle = gdsGradient
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+  end
+  object dsTabela: TDataSource
+    Left = 600
+    Top = 24
+  end
+end
