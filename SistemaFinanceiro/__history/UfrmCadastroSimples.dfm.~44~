@@ -2835,7 +2835,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       Enabled = False
       ImageIndex = 9
       ShortCut = 115
-      OnExecute = actEditarExecute
+      OnUpdate = actEditarUpdate
     end
     object actExcluir: TAction
       Caption = 'Excluir'
@@ -2843,6 +2843,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 15
       ShortCut = 116
       OnExecute = actExcluirExecute
+      OnUpdate = actExcluirUpdate
     end
     object actSalvar: TAction
       Caption = 'Salvar'
@@ -2850,6 +2851,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 12
       ShortCut = 117
       OnExecute = actSalvarExecute
+      OnUpdate = actSalvarUpdate
     end
     object actCancelar: TAction
       Caption = 'Cancelar'
@@ -2871,6 +2873,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 14
       ShortCut = 120
       OnExecute = actImprimirExecute
+      OnUpdate = actImprimirUpdate
     end
     object actFechar: TAction
       Caption = 'Fechar'
