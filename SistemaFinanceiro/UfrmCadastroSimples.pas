@@ -18,9 +18,10 @@ type
     pgcControl1: TPageControl;
     tsbCadastro: TTabSheet;
     tsbPesquisa: TTabSheet;
+    ilCadastro: TImageList;
+    dbgrd2: TDBGrid;
     dbgrd1: TDBGrid;
     actmgrCadastro: TActionManager;
-    ilCadastro: TImageList;
     actInserir: TAction;
     actEditar: TAction;
     actExcluir: TAction;
@@ -31,17 +32,19 @@ type
     actFechar: TAction;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actInserirExecute(Sender: TObject);
-    procedure actExcluirExecute(Sender: TObject);
-    procedure actSalvarExecute(Sender: TObject);
     procedure actPesquisarExecute(Sender: TObject);
     procedure actImprimirExecute(Sender: TObject);
     procedure actFecharExecute(Sender: TObject);
-    procedure actEditarExecute(Sender: TObject);
     procedure actCancelarExecute(Sender: TObject);
     procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure tsbPesquisaShow(Sender: TObject);
     procedure actInserirUpdate(Sender: TObject);
+    procedure actExcluirUpdate(Sender: TObject);
+    procedure actEditarUpdate(Sender: TObject);
+    procedure actImprimirUpdate(Sender: TObject);
+    procedure actSalvarUpdate(Sender: TObject);
+    procedure actSalvarExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,22 +63,28 @@ uses
 
 procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
 begin
-TClientDataSet(dsTabela).Cancel;
+if pgcControl1.ActivePage = tsbCadastro then
+  pgcControl1.ActivePage := tsbPesquisa;
+TClientDataSet(dsTabela.DataSet).Cancel;
+
 end;
 
 procedure TfrmCadastroSimples.actCancelarUpdate(Sender: TObject);
 begin
-  TAction(actCancelar).Enabled :=  TAction(actSalvar).Enabled = True;
+   actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
+   actCancelar.Enabled :=  actSalvar.Enabled = True;
 end;
 
-procedure TfrmCadastroSimples.actEditarExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actEditarUpdate(Sender: TObject);
 begin
-//
+  if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
+    actEditar.Enabled := dsTabela.State in [dsBrowse];
 end;
 
-procedure TfrmCadastroSimples.actExcluirExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actExcluirUpdate(Sender: TObject);
 begin
-//
+  if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
+    actExcluir.Enabled := dsTabela.State in [dsBrowse];
 end;
 
 procedure TfrmCadastroSimples.actFecharExecute(Sender: TObject);
@@ -85,7 +94,13 @@ end;
 
 procedure TfrmCadastroSimples.actImprimirExecute(Sender: TObject);
 begin
-//
+ ShowMessage('Em desenvolvimento!');
+end;
+
+procedure TfrmCadastroSimples.actImprimirUpdate(Sender: TObject);
+begin
+  if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
+    actImprimir.Enabled := dsTabela.State in [dsBrowse];
 end;
 
 procedure TfrmCadastroSimples.actInserirExecute(Sender: TObject);
@@ -98,7 +113,7 @@ end;
 
 procedure TfrmCadastroSimples.actInserirUpdate(Sender: TObject);
 begin
-  actInserir.Enabled := dsTabela.State in [dsBrowse, dsInactive];
+  actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
 end;
 
 procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);
@@ -107,9 +122,37 @@ begin
   TClientDataSet(dsTabela.DataSet).Open;
 end;
 
+//Checa se o INSERT ou UPDATE funcionaram como deveriam
 procedure TfrmCadastroSimples.actSalvarExecute(Sender: TObject);
 begin
-//
+
+  try
+
+  TClientDataSet(dsTabela.DataSet).Post;
+  TClientDataSet(dsTabela.DataSet).ApplyUpdates(0);
+
+    case dsTabela.State of
+      dsEdit : Application.MessageBox('Registro Atualizado com Sucesso!', 'Informação', MB_OK+MB_ICONINFORMATION);
+      dsInsert : Application.MessageBox('Registro Inserido com Sucesso!', 'Informação', MB_OK+MB_ICONINFORMATION);
+    end;
+
+    if pgcControl1.ActivePage = tsbCadastro then
+      pgcControl1.ActivePage := tsbPesquisa;
+
+      //limpar campos
+
+        TClientDataSet(dsTabela.DataSet).Open;
+
+  except on E : Exception do
+  raise Exception.Create('Erro ao Salvar Registro: ' + E.Message)
+  end
+
+
+end;
+
+procedure TfrmCadastroSimples.actSalvarUpdate(Sender: TObject);
+begin
+  actSalvar.Enabled := dsTabela.State in [dsInsert,dsEdit];
 end;
 
 procedure TfrmCadastroSimples.FormClose(Sender: TObject;

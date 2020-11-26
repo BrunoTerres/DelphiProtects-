@@ -55,13 +55,27 @@ object frmCadastroSimples: TfrmCadastroSimples
     Top = 0
     Width = 703
     Height = 232
-    ActivePage = tsCadastro
+    ActivePage = tsbCadastro
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = -1
-    ExplicitTop = -5
-    object tsCadastro: TTabSheet
+    object tsbCadastro: TTabSheet
       Caption = 'Cadastro'
+      object dbgrd2: TDBGrid
+        Left = 0
+        Top = 48
+        Width = 695
+        Height = 156
+        Align = alBottom
+        DataSource = dsTabela
+        DrawingStyle = gdsGradient
+        Enabled = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
     end
     object tsbPesquisa: TTabSheet
       Caption = 'Pesquisa'
@@ -90,135 +104,13 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 600
     Top = 24
   end
-  object actmgrCadastro: TActionManager
-    ActionBars = <
-      item
-        Items = <
-          item
-            Action = actInserir
-            Caption = '&Inserir'
-            ImageIndex = 3
-            ShortCut = 114
-          end
-          item
-            Action = actExcluir
-            Caption = '&Excluir'
-            ImageIndex = 15
-            ShortCut = 116
-          end
-          item
-            Action = actEditar
-            Caption = 'E&ditar'
-            ImageIndex = 9
-            ShortCut = 115
-          end
-          item
-            Caption = '-'
-          end
-          item
-            Action = actSalvar
-            Caption = '&Salvar'
-            ImageIndex = 12
-            ShortCut = 117
-          end
-          item
-            Action = actCancelar
-            Caption = '&Cancelar'
-            ImageIndex = 13
-            ShortCut = 118
-          end
-          item
-            Caption = '-'
-          end
-          item
-            Caption = '-'
-          end
-          item
-            Action = actPesquisar
-            Caption = '&Pesquisar'
-            ImageIndex = 10
-            ShortCut = 112
-          end
-          item
-            Action = actImprimir
-            Caption = 'I&mprimir'
-            ImageIndex = 14
-            ShortCut = 120
-          end
-          item
-            Action = actFechar
-            Caption = '&Fechar'
-            ImageIndex = 5
-            ShortCut = 16499
-          end>
-        ActionBar = acttb1
-      end>
-    Images = ilCadastro
-    Left = 392
-    Top = 104
-    StyleName = 'Platform Default'
-    object actInserir: TAction
-      Caption = 'Inserir'
-      ImageIndex = 3
-      ShortCut = 114
-      OnExecute = actInserirExecute
-    end
-    object actEditar: TAction
-      Caption = 'Editar'
-      Enabled = False
-      ImageIndex = 9
-      ShortCut = 115
-      OnExecute = actEditarExecute
-    end
-    object actExcluir: TAction
-      Caption = 'Excluir'
-      Enabled = False
-      ImageIndex = 15
-      ShortCut = 116
-      OnExecute = actExcluirExecute
-    end
-    object actSalvar: TAction
-      Caption = 'Salvar'
-      Enabled = False
-      ImageIndex = 12
-      ShortCut = 117
-      OnExecute = actSalvarExecute
-    end
-    object actCancelar: TAction
-      Caption = 'Cancelar'
-      Enabled = False
-      ImageIndex = 13
-      ShortCut = 118
-      OnExecute = actCancelarExecute
-      OnUpdate = actCancelarUpdate
-    end
-    object actPesquisar: TAction
-      Caption = 'Pesquisar'
-      ImageIndex = 10
-      ShortCut = 112
-      OnExecute = actPesquisarExecute
-    end
-    object actImprimir: TAction
-      Caption = 'Imprimir'
-      Enabled = False
-      ImageIndex = 14
-      ShortCut = 120
-      OnExecute = actImprimirExecute
-    end
-    object actFechar: TAction
-      Caption = 'Fechar'
-      ImageIndex = 5
-      ShortCut = 16499
-      OnExecute = actFecharExecute
-    end
-  end
   object ilCadastro: TImageList
     Height = 32
     Width = 32
     Left = 312
     Top = 152
     Bitmap = {
-      494C0101100018002C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800340020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2864,5 +2756,126 @@ object frmCadastroSimples: TfrmCadastroSimples
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
+  end
+  object actmgrCadastro: TActionManager
+    ActionBars = <
+      item
+        Items = <
+          item
+            Action = actInserir
+            Caption = '&Inserir'
+            ImageIndex = 3
+            ShortCut = 114
+          end
+          item
+            Action = actExcluir
+            Caption = '&Excluir'
+            ImageIndex = 15
+            ShortCut = 116
+          end
+          item
+            Action = actEditar
+            Caption = 'E&ditar'
+            ImageIndex = 9
+            ShortCut = 115
+          end
+          item
+            Caption = '-'
+          end
+          item
+            Action = actSalvar
+            Caption = '&Salvar'
+            ImageIndex = 12
+            ShortCut = 117
+          end
+          item
+            Action = actCancelar
+            ImageIndex = 13
+            ShortCut = 118
+          end
+          item
+            Caption = '-'
+          end
+          item
+            Caption = '-'
+          end
+          item
+            Action = actPesquisar
+            Caption = '&Pesquisar'
+            ImageIndex = 10
+            ShortCut = 112
+          end
+          item
+            Action = actImprimir
+            Caption = 'I&mprimir'
+            ImageIndex = 14
+            ShortCut = 120
+          end
+          item
+            Action = actFechar
+            Caption = '&Fechar'
+            ImageIndex = 5
+            ShortCut = 16499
+          end>
+        ActionBar = acttb1
+      end>
+    Images = ilCadastro
+    Left = 392
+    Top = 104
+    StyleName = 'Platform Default'
+    object actInserir: TAction
+      Caption = 'Inserir'
+      ImageIndex = 3
+      ShortCut = 114
+      OnExecute = actInserirExecute
+      OnUpdate = actInserirUpdate
+    end
+    object actEditar: TAction
+      Caption = 'Editar'
+      Enabled = False
+      ImageIndex = 9
+      ShortCut = 115
+    end
+    object actExcluir: TAction
+      Caption = 'Excluir'
+      Enabled = False
+      ImageIndex = 15
+      ShortCut = 116
+      OnUpdate = actExcluirUpdate
+    end
+    object actSalvar: TAction
+      Caption = 'Salvar'
+      Enabled = False
+      ImageIndex = 12
+      ShortCut = 117
+      OnExecute = actSalvarExecute
+    end
+    object actCancelar: TAction
+      Caption = 'Cancelar'
+      Enabled = False
+      ImageIndex = 13
+      ShortCut = 118
+      OnExecute = actCancelarExecute
+      OnUpdate = actCancelarUpdate
+    end
+    object actPesquisar: TAction
+      Caption = 'Pesquisar'
+      ImageIndex = 10
+      ShortCut = 112
+      OnExecute = actPesquisarExecute
+    end
+    object actImprimir: TAction
+      Caption = 'Imprimir'
+      Enabled = False
+      ImageIndex = 14
+      ShortCut = 120
+      OnExecute = actImprimirExecute
+    end
+    object actFechar: TAction
+      Caption = 'Fechar'
+      ImageIndex = 5
+      ShortCut = 16499
+      OnExecute = actFecharExecute
+    end
   end
 end

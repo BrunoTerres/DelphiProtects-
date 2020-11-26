@@ -55,13 +55,27 @@ object frmCadastroSimples: TfrmCadastroSimples
     Top = 0
     Width = 703
     Height = 232
-    ActivePage = tsbCadastro
+    ActivePage = tsbPesquisa
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = -1
-    ExplicitTop = -5
     object tsbCadastro: TTabSheet
       Caption = 'Cadastro'
+      object dbgrd2: TDBGrid
+        Left = 0
+        Top = 48
+        Width = 695
+        Height = 156
+        Align = alBottom
+        DataSource = dsTabela
+        DrawingStyle = gdsGradient
+        Enabled = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
     end
     object tsbPesquisa: TTabSheet
       Caption = 'Pesquisa'
@@ -96,6 +110,7 @@ object frmCadastroSimples: TfrmCadastroSimples
         Items = <
           item
             Action = actInserir
+            Caption = '&Inserir'
             ImageIndex = 3
             ShortCut = 114
           end
@@ -161,6 +176,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 3
       ShortCut = 114
       OnExecute = actInserirExecute
+      OnUpdate = actInserirUpdate
     end
     object actEditar: TAction
       Caption = 'Editar'
@@ -217,7 +233,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 312
     Top = 152
     Bitmap = {
-      494C0101100018002C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800340020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
