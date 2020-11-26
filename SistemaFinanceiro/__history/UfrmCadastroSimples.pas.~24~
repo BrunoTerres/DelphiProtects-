@@ -16,7 +16,7 @@ type
     pnl1: TPanel;
     acttb1: TActionToolBar;
     pgcControl1: TPageControl;
-    tsbCadastro: TTabSheet;
+    tsCadastro: TTabSheet;
     tsbPesquisa: TTabSheet;
     dbgrd1: TDBGrid;
     actmgrCadastro: TActionManager;
@@ -41,7 +41,6 @@ type
     procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure tsbPesquisaShow(Sender: TObject);
-    procedure actInserirUpdate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,15 +89,7 @@ end;
 
 procedure TfrmCadastroSimples.actInserirExecute(Sender: TObject);
 begin
- if pgcControl1.ActivePage = tsbPesquisa  then
-  pgcControl1.ActivePage := tsbCadastro;
-  TClientDataSet(dsTabela.DataSet).Open;
-  TClientDataSet(dsTabela.DataSet).Insert;
-end;
-
-procedure TfrmCadastroSimples.actInserirUpdate(Sender: TObject);
-begin
-  actInserir.Enabled := dsTabela.State in [dsBrowse, dsInactive];
+//
 end;
 
 procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);

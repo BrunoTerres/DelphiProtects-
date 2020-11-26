@@ -50,22 +50,23 @@ object frmCadastroSimples: TfrmCadastroSimples
       Spacing = 0
     end
   end
-  object pgcPesquisa: TPageControl
+  object pgcControl1: TPageControl
     Left = 0
     Top = 0
     Width = 703
     Height = 232
-    ActivePage = tsbPesquisa
+    ActivePage = tsbCadastro
     Align = alClient
     TabOrder = 2
-    object ts1: TTabSheet
+    ExplicitLeft = -1
+    ExplicitTop = -5
+    object tsbCadastro: TTabSheet
       Caption = 'Cadastro'
     end
     object tsbPesquisa: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 1
-      ExplicitLeft = 7
-      ExplicitTop = 23
+      OnShow = tsbPesquisaShow
       object dbgrd1: TDBGrid
         Left = 0
         Top = 48
@@ -94,12 +95,6 @@ object frmCadastroSimples: TfrmCadastroSimples
       item
         Items = <
           item
-            Action = actInserir
-            Caption = '&Inserir'
-            ImageIndex = 3
-            ShortCut = 114
-          end
-          item
             Action = actExcluir
             Caption = '&Excluir'
             ImageIndex = 15
@@ -121,10 +116,22 @@ object frmCadastroSimples: TfrmCadastroSimples
             ShortCut = 117
           end
           item
+            Action = actCancelar
+            Caption = '&Cancelar'
+            ImageIndex = 13
+            ShortCut = 118
+          end
+          item
             Caption = '-'
           end
           item
             Caption = '-'
+          end
+          item
+            Action = actPesquisar
+            Caption = '&Pesquisar'
+            ImageIndex = 10
+            ShortCut = 112
           end
           item
             Action = actImprimir
@@ -183,6 +190,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Pesquisar'
       ImageIndex = 10
       ShortCut = 112
+      OnExecute = actPesquisarExecute
     end
     object actImprimir: TAction
       Caption = 'Imprimir'
@@ -204,7 +212,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 312
     Top = 152
     Bitmap = {
-      494C010110001800240020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101100018002C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -29,7 +29,6 @@ type
     actPesquisar: TAction;
     actImprimir: TAction;
     actFechar: TAction;
-    ds1: TClientDataSet;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actInserirExecute(Sender: TObject);
     procedure actExcluirExecute(Sender: TObject);
@@ -40,6 +39,8 @@ type
     procedure actEditarExecute(Sender: TObject);
     procedure actCancelarExecute(Sender: TObject);
     procedure actCancelarUpdate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure tsbPesquisaShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +52,9 @@ var
 
 implementation
 
+uses
+  dbsistema;
+
 {$R *.dfm}
 
 procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
@@ -60,7 +64,7 @@ end;
 
 procedure TfrmCadastroSimples.actCancelarUpdate(Sender: TObject);
 begin
-  TAction(actCancelar.Enabled :=  TAction(actSalvar).Enabled = True;
+  TAction(actCancelar).Enabled :=  TAction(actSalvar).Enabled = True;
 end;
 
 procedure TfrmCadastroSimples.actEditarExecute(Sender: TObject);
@@ -90,7 +94,8 @@ end;
 
 procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);
 begin
-//
+  TClientDataSet(dsTabela.DataSet).Close;
+  TClientDataSet(dsTabela.DataSet).Open;
 end;
 
 procedure TfrmCadastroSimples.actSalvarExecute(Sender: TObject);
@@ -98,10 +103,22 @@ begin
 //
 end;
 
+procedure TfrmCadastroSimples.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  TClientDataSet(dsTabela.DataSet).Cancel;
+  TClientDataSet(dsTabela.DataSet).Close;
+end;
+
 procedure TfrmCadastroSimples.FormKeyPress(Sender: TObject; var Key: Char);
 begin
 if Key = #27 then
   Close;
+end;
+
+procedure TfrmCadastroSimples.tsbPesquisaShow(Sender: TObject);
+begin
+  PageControl1.ActivePage := tsbPesquisa;
 end;
 
 end.

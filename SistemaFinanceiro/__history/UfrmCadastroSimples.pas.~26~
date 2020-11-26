@@ -41,7 +41,6 @@ type
     procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure tsbPesquisaShow(Sender: TObject);
-    procedure actInserirUpdate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -94,11 +93,6 @@ begin
   pgcControl1.ActivePage := tsbCadastro;
   TClientDataSet(dsTabela.DataSet).Open;
   TClientDataSet(dsTabela.DataSet).Insert;
-end;
-
-procedure TfrmCadastroSimples.actInserirUpdate(Sender: TObject);
-begin
-  actInserir.Enabled := dsTabela.State in [dsBrowse, dsInactive];
 end;
 
 procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);

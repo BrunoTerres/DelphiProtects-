@@ -50,17 +50,17 @@ object frmCadastroSimples: TfrmCadastroSimples
       Spacing = 0
     end
   end
-  object pgcPesquisa: TPageControl
+  object pgcControl1: TPageControl
     Left = 0
     Top = 0
     Width = 703
     Height = 232
-    ActivePage = ts1
+    ActivePage = tsbCadastro
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = -8
-    ExplicitTop = -6
-    object ts1: TTabSheet
+    ExplicitLeft = -1
+    ExplicitTop = -5
+    object tsbCadastro: TTabSheet
       Caption = 'Cadastro'
     end
     object tsbPesquisa: TTabSheet
@@ -96,7 +96,6 @@ object frmCadastroSimples: TfrmCadastroSimples
         Items = <
           item
             Action = actInserir
-            Caption = '&Inserir'
             ImageIndex = 3
             ShortCut = 114
           end
@@ -135,6 +134,7 @@ object frmCadastroSimples: TfrmCadastroSimples
           end
           item
             Action = actPesquisar
+            Caption = '&Pesquisar'
             ImageIndex = 10
             ShortCut = 112
           end
@@ -161,6 +161,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 3
       ShortCut = 114
       OnExecute = actInserirExecute
+      OnUpdate = actInserirUpdate
     end
     object actEditar: TAction
       Caption = 'Editar'
@@ -217,7 +218,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 312
     Top = 152
     Bitmap = {
-      494C010110001800280020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101100018002C0020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
