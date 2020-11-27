@@ -40,6 +40,7 @@ type
     procedure btnUsuarioClick(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure imgUsuarioClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,7 +54,7 @@ var
 implementation
 
 uses
-  UfrmCadastroSimples;
+  UfrmCadastroSimples, UfrmCadastroUsuarios;
 
 {$R *.dfm}
 
@@ -76,6 +77,16 @@ begin
     Application.Terminate
   else
     Abort;
+end;
+
+procedure TSistemaFinanceiro.imgUsuarioClick(Sender: TObject);
+begin
+  frmCadastroUsuarios := TfrmCadastroUsuarios.Create(nil);
+    try
+      frmCadastroUsuarios.ShowModal;
+    finally
+      FreeAndNil(frmCadastroUsuarios);
+    end;
 end;
 
 procedure TSistemaFinanceiro.tmr1Timer(Sender: TObject);

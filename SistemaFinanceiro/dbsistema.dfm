@@ -48,7 +48,6 @@ object DataModule1: TDataModule1
     Top = 24
   end
   object sdscaixa: TSQLDataSet
-    Active = True
     CommandText = 'select * from "caixa"'
     MaxBlobSize = -1
     Params = <>
@@ -97,7 +96,6 @@ object DataModule1: TDataModule1
     end
   end
   object sdscontas_pagar: TSQLDataSet
-    Active = True
     CommandText = 'select * from  "contas_pagar"'
     MaxBlobSize = -1
     Params = <>
@@ -174,7 +172,6 @@ object DataModule1: TDataModule1
     end
   end
   object sdscontas_receber: TSQLDataSet
-    Active = True
     CommandText = 'select * from  "contas_receber"'
     MaxBlobSize = -1
     Params = <>
@@ -244,7 +241,6 @@ object DataModule1: TDataModule1
     end
   end
   object sdsusuarios: TSQLDataSet
-    Active = True
     CommandText = 'select * from  "usuarios"'
     MaxBlobSize = -1
     Params = <>
@@ -264,30 +260,30 @@ object DataModule1: TDataModule1
     Left = 284
     Top = 480
     object intgrfldcdsusuariosid: TIntegerField
-      FieldName = 'id'
+      FieldName = 'Id'
       Required = True
     end
     object strngfldcdsusuariosnome: TStringField
-      FieldName = 'nome'
+      FieldName = 'Nome'
       Required = True
       Size = 50
     end
     object strngfldcdsusuarioslogin: TStringField
-      FieldName = 'login'
+      FieldName = 'Login'
       Required = True
     end
     object strngfldcdsusuariossenha: TStringField
-      FieldName = 'senha'
+      FieldName = 'Senha'
       Required = True
     end
     object strngfldcdsusuariosstatus: TStringField
-      FieldName = 'status'
+      FieldName = 'Status'
       Required = True
       FixedChar = True
       Size = 1
     end
     object cdsusuariosdt_cadastro: TDateField
-      FieldName = 'dt_cadastro'
+      FieldName = 'Data de Cadastro'
     end
   end
 end

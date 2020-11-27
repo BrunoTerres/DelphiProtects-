@@ -1,10 +1,11 @@
 program Project2;
-
+//Caminhos das Units
 uses
   Vcl.Forms,
   UfrmSistemaFinanceiro in 'UfrmSistemaFinanceiro.pas' {SistemaFinanceiro},
   dbsistema in 'dbsistema.pas' {DataModule1: TDataModule},
-  UfrmCadastroSimples in 'UfrmCadastroSimples.pas' {frmCadastroSimples};
+  UfrmCadastroSimples in 'view\UfrmCadastroSimples.pas' {frmCadastroSimples},
+  UfrmCadastroUsuarios in 'view\UfrmCadastroUsuarios.pas' {frmCadastroUsuarios};
 
 {$R *.res}
 
@@ -13,5 +14,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TSistemaFinanceiro, SistemaFinanceiro);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TfrmCadastroUsuarios, frmCadastroUsuarios);
   Application.Run;
 end.

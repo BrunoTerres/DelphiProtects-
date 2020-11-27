@@ -160,6 +160,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
       3B14E8D9D633C09E6BAF3F17E15160CB962D58BD7AF571F7FF1FA2CF1FAA73FF
       E02F0000000049454E44AE426082}
     ShowHint = False
+    OnClick = imgUsuarioClick
   end
   object lblCadastros: TLabel
     Left = 206
@@ -1749,7 +1750,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Left = 218
     Top = 767
     Width = 89
-    Height = 33
+    Height = 48
     Align = alCustom
     Caption = 'Navegador'#13#10
     Font.Charset = ANSI_CHARSET
@@ -2036,9 +2037,6 @@ object SistemaFinanceiro: TSistemaFinanceiro
       item
         Width = 50
       end>
-    ExplicitLeft = 280
-    ExplicitTop = 432
-    ExplicitWidth = 0
   end
   object tmr1: TTimer
     OnTimer = tmr1Timer

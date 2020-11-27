@@ -2,11 +2,11 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2020/11/24 14:24:39.000.958,=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/11/24 14:25:56.000.797,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmSistemaFinanceiro.dfm=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/11/24 14:25:56.000.797,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmSistemaFinanceiro.pas=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/24 14:25:56.000.797,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmSistemaFinanceiro.dfm=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/11/24 14:58:24.000.968,=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/11/24 15:35:09.000.790,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\dbsistema.dfm=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/11/24 15:35:09.000.790,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\dbsistema.pas=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/24 15:35:09.000.790,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\dbsistema.dfm=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/11/24 15:35:56.000.341,=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/11/24 15:36:36.000.702,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Ufrmcadastro.pas=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/11/24 15:36:36.000.702,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Ufrmcadastro.dfm=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
@@ -17,13 +17,20 @@
     <Transaction>2020/11/24 16:00:26.000.000,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmCadastroSimples.pas=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmCadastroSistema.pas</Transaction>
     <Transaction>2020/11/24 16:00:26.000.000,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmCadastroSimples.dfm=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\UfrmCadastroSistema.dfm</Transaction>
     <Transaction>2020/11/24 16:43:44.000.435,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Project2.dproj=C:\Users\Bruno\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2020/11/27 14:32:29.000.247,=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2020/11/27 16:06:48.000.048,=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2020/11/27 16:26:21.000.262,=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2020/11/27 16:28:25.000.191,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Unit1.dfm=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\view\UfrmCadastroUsuarios.dfm</Transaction>
+    <Transaction>2020/11/27 16:28:25.000.191,D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\Unit1.pas=D:\materialEstudo\DelphiProtects-\SistemaFinanceiro\view\UfrmCadastroUsuarios.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="view"/>
+    <File Path="view\UfrmCadastroUsuarios.pas"/>
+    <File Path="view\UfrmCadastroUsuarios.dfm"/>
     <File Path="UfrmSistemaFinanceiro.pas"/>
     <File Path="UfrmSistemaFinanceiro.dfm"/>
     <File Path="dbsistema.pas"/>
     <File Path="dbsistema.dfm"/>
     <File Path="UfrmCadastroSimples.pas"/>
-    <File Path="UfrmCadastroSimples.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

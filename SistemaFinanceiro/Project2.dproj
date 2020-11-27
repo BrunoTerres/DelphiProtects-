@@ -94,8 +94,11 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="UfrmCadastroSimples.pas">
+        <DCCReference Include="view\UfrmCadastroSimples.pas">
             <Form>frmCadastroSimples</Form>
+        </DCCReference>
+        <DCCReference Include="view\UfrmCadastroUsuarios.pas">
+            <Form>frmCadastroUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
