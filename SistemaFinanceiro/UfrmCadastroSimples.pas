@@ -1,7 +1,11 @@
+//Declarção Unit (Nome da aplicação definido ao Salvar)
 unit UfrmCadastroSimples;
 
+//Espaço reservado para INFORMAR procedimentos, variáveis, constantes...
 interface
 
+//Espaço para definição das bibliotecas externas a ESTA UNIT  Que serão usadas na definição da interface
+//(muitas dinamicamente alocadas pelo Delphi, outras precisam ser declaradas)
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids,
@@ -9,6 +13,8 @@ uses
   System.Actions, Vcl.ActnList, Vcl.ImgList, Vcl.PlatformDefaultStyleActnCtrls,
   Datasnap.DBClient;
 
+//Responsável pela definição dos Objetos da UNIT. Incluindo a Classe do formulário
+//Funções, Variáveis, Constantes do formulário
 type
   TfrmCadastroSimples = class(TForm)
     dsTabela: TDataSource;
@@ -59,25 +65,48 @@ type
     procedure actSalvarExecute(Sender: TObject);
     procedure actExcluirExecute(Sender: TObject);
     procedure actEditarExecute(Sender: TObject);
+  //Objetos, métodos e campos de dados declarados em 'private' só poderão ser acessados na própria Unit
   private
     { Private declarations }
     procedure LimparTudo;
+  //Objetos, métodos e campos declarados em 'public' podem ser acessados por outras Units
   public
     { Public declarations }
   end;
 
+//declaração de variáveis publicas da Unit, além de instanciação de outros formulários(Externos)
 var
   frmCadastroSimples: TfrmCadastroSimples;
 
+//sessão reservada para o desenvolvimento das funcionalidades dos métodos declarados
 implementation
 
+//uses reservada para declaração de bibliotecas que serão usadas nas funcionalidades dos métodos
 uses
   dbsistema;
 
+//DIRETIVA DE COMPILAÇÃO
+//Informa o arquivo que contém as configurações do formulário e dos componentes.
+//Possui mesmo nome da Unit mudando apenas extenção
+//(UfrmSistemaFInanceiro.pas   ->   UfrmSistemaFinanceiro.dfm)
 {$R *.dfm}
 
-procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
+
+
+
+// PROCEDURE é onde faz referência a qual componente esta sendo atribuida a função
+//                1
+// PROCEDURE 'TfrmCadastroSimples'... faz referência a Página onde se encontra o elemento
+//                     2
+// PROCEDURE ...'actCancelar...' Objeto em expecifico que a função sera atribuída
+//                     3
+// PROCEDURE ...'...Execute' Expecificação do estado do objeto para atribuição da funcionalidade
+
+//Exemplo abaixo
+//PROCEDURE        1                2        3
+ procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
 begin
+//função 'LIMPAR TUDO' declarada mais abaixo
 LimparTudo;
 TClientDataSet(dsTabela.DataSet).Cancel;
 

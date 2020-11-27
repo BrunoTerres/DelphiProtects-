@@ -21,7 +21,6 @@ object frmCadastroSimples: TfrmCadastroSimples
     Width = 703
     Height = 19
     Panels = <>
-    ExplicitTop = 280
   end
   object pnl1: TPanel
     Left = 0
@@ -30,7 +29,6 @@ object frmCadastroSimples: TfrmCadastroSimples
     Height = 48
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 232
     object acttb1: TActionToolBar
       Left = 1
       Top = 1
@@ -60,9 +58,11 @@ object frmCadastroSimples: TfrmCadastroSimples
     ActivePage = tsbPesquisa
     Align = alClient
     TabOrder = 2
-    ExplicitHeight = 232
     object tsbCadastro: TTabSheet
       Caption = 'Cadastro'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
       ExplicitHeight = 204
       object dbgrd2: TDBGrid
         Left = 0
@@ -85,13 +85,11 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Pesquisa'
       ImageIndex = 1
       OnShow = tsbPesquisaShow
-      ExplicitLeft = 7
-      ExplicitTop = 23
       object lbl1: TLabel
         Left = 16
         Top = 3
-        Width = 65
-        Height = 22
+        Width = 55
+        Height = 12
         Caption = 'Pesquisar'
         Font.Charset = OEM_CHARSET
         Font.Color = clWindowText
@@ -145,7 +143,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 656
     Top = 24
     Bitmap = {
-      494C010110001800340020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800380020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2825,6 +2823,7 @@ object frmCadastroSimples: TfrmCadastroSimples
           end
           item
             Action = actCancelar
+            Caption = '&Cancelar'
             ImageIndex = 13
             ShortCut = 118
           end
