@@ -17,6 +17,7 @@ uses
 //Funções, Variáveis, Constantes do formulário
 type
   TfrmCadastroSimples = class(TForm)
+    //Referência ao Objeto "TDataSource", Link com o banco de dados Firebird e IBexpert
     dsTabela: TDataSource;
     stat1: TStatusBar;
     pnl1: TPanel;
@@ -49,10 +50,7 @@ type
     actImprimir1: TAction;
     actFechar1: TAction;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure actInserirExecute(Sender: TObject);
     procedure actPesquisarExecute(Sender: TObject);
-    procedure actImprimirExecute(Sender: TObject);
-    procedure actFecharExecute(Sender: TObject);
     procedure actCancelarExecute(Sender: TObject);
     procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -62,9 +60,14 @@ type
     procedure actEditarUpdate(Sender: TObject);
     procedure actImprimirUpdate(Sender: TObject);
     procedure actSalvarUpdate(Sender: TObject);
-    procedure actSalvarExecute(Sender: TObject);
-    procedure actExcluirExecute(Sender: TObject);
-    procedure actEditarExecute(Sender: TObject);
+    procedure actInserir1Execute(Sender: TObject);
+    procedure actEditar1Execute(Sender: TObject);
+    procedure actExcluir1Execute(Sender: TObject);
+    procedure actSalvar1Execute(Sender: TObject);
+    procedure actCancelar1Execute(Sender: TObject);
+    procedure actPesquisar1Execute(Sender: TObject);
+    procedure actImprimir1Execute(Sender: TObject);
+    procedure actFechar1Execute(Sender: TObject);
   //Objetos, métodos e campos de dados declarados em 'private' só poderão ser acessados na própria Unit
   private
     { Private declarations }
@@ -104,21 +107,30 @@ uses
 
 //Exemplo abaixo
 //PROCEDURE        1                2        3
- procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
+ procedure TfrmCadastroSimples.actCancelar1Execute(Sender: TObject);
 begin
 //função 'LIMPAR TUDO' declarada mais abaixo
 LimparTudo;
+//Atribui ao botão CANCEL a função de Cancelar
+//ESTRUTURA "TClientDataSet(dsTable.DataSet)' faz referência a tabela definida no ClientDataSet em "dbsistema.pas"
 TClientDataSet(dsTabela.DataSet).Cancel;
+end;
+
+procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
+begin
 
 end;
 
+
+//PRECEDURE mesmo componente e objeto da PROCEDURE ACIMA
+//Mudando apenas o estado do abjeto para ...actCancelar'Update'
 procedure TfrmCadastroSimples.actCancelarUpdate(Sender: TObject);
 begin
    actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
    actCancelar.Enabled :=  actSalvar.Enabled = True;
 end;
 
-procedure TfrmCadastroSimples.actEditarExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actEditar1Execute(Sender: TObject);
 begin
   if pgcControl1.ActivePage = tsbPesquisa then
     pgcControl1.ActivePage := tsbCadastro;
@@ -131,8 +143,13 @@ begin
     actEditar.Enabled := dsTabela.State in [dsBrowse];
 end;
 
-procedure TfrmCadastroSimples.actExcluirExecute(Sender: TObject);
+//Difinição da função "Excluir" atribuída ao botão 'Excluir' quando Executado(Execute)
+
+procedure TfrmCadastroSimples.actExcluir1Execute(Sender: TObject);
 begin
+  //Abre msgBox com o texto 'Deseja Realmente Excluir o Registro?'
+  //Caso SIM faz o Delete no item selecionado, aplica o Update e retorna "Excluido com Sucesso!"
+  //Se não for possível Excluir o Item, retorna "Erro ao Exlcuir Registro"
   if Application.MessageBox('Deseja Realmente Excluir o Registro?', 'Pergunta', MB_YESNO+MB_ICONQUESTION) = mrYes then
     begin
       try
@@ -142,6 +159,7 @@ begin
         Application.MessageBox('Registro Excluido com Sucesso!', 'Informação', 0+64);
         TClientDataSet(dsTabela.DataSet).Open;
 
+
         except on E : Exception do
 
         raise Exception.Create('Erro ao Excluir Registro: ' + E.Message);
@@ -150,7 +168,6 @@ begin
 
       end;
     end;
-
 end;
 
 procedure TfrmCadastroSimples.actExcluirUpdate(Sender: TObject);
@@ -159,14 +176,14 @@ begin
     actExcluir.Enabled := dsTabela.State in [dsBrowse];
 end;
 
-procedure TfrmCadastroSimples.actFecharExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actFechar1Execute(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
-procedure TfrmCadastroSimples.actImprimirExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actImprimir1Execute(Sender: TObject);
 begin
- ShowMessage('Em desenvolvimento!');
+  ShowMessage('Em desenvolvimento!');
 end;
 
 procedure TfrmCadastroSimples.actImprimirUpdate(Sender: TObject);
@@ -175,13 +192,13 @@ begin
     actImprimir.Enabled := dsTabela.State in [dsBrowse];
 end;
 
-procedure TfrmCadastroSimples.actInserirExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actInserir1Execute(Sender: TObject);
 begin
- if pgcControl1.ActivePage = tsbPesquisa  then
-  pgcControl1.ActivePage := tsbCadastro;
+  if pgcControl1.ActivePage = tsbPesquisa  then
+    pgcControl1.ActivePage := tsbCadastro;
   if not TClientDataSet(dsTabela.DataSet).Active then
-  TClientDataSet(dsTabela.DataSet).Open;
-  TClientDataSet(dsTabela.DataSet).Insert;
+    TClientDataSet(dsTabela.DataSet).Open;
+    TClientDataSet(dsTabela.DataSet).Insert;
 end;
 
 procedure TfrmCadastroSimples.actInserirUpdate(Sender: TObject);
@@ -189,16 +206,20 @@ begin
   actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
 end;
 
-procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actPesquisar1Execute(Sender: TObject);
 begin
   TClientDataSet(dsTabela.DataSet).Close;
   TClientDataSet(dsTabela.DataSet).Open;
 end;
 
-//Checa se o INSERT ou UPDATE funcionaram como deveriam
-procedure TfrmCadastroSimples.actSalvarExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);
 begin
 
+end;
+
+//Checa se o INSERT ou UPDATE funcionaram como deveriam
+procedure TfrmCadastroSimples.actSalvar1Execute(Sender: TObject);
+begin
   try
 
   TClientDataSet(dsTabela.DataSet).Post;
@@ -217,8 +238,6 @@ begin
   except on E : Exception do
   raise Exception.Create('Erro ao Salvar Registro: ' + E.Message)
   end
-
-
 end;
 
 procedure TfrmCadastroSimples.actSalvarUpdate(Sender: TObject);
@@ -239,6 +258,8 @@ if Key = #27 then
   Close;
 end;
 
+//FUNÇÃO LIMPAR TUDO
+//Conta e Percorre os cadastros adicionados e não salvos e remove todos
 procedure TfrmCadastroSimples.LimparTudo;
 var
   i: Integer;

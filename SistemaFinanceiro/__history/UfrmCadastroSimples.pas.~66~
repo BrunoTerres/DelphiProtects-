@@ -1,7 +1,11 @@
+//Declarção Unit (Nome da aplicação definido ao Salvar)
 unit UfrmCadastroSimples;
 
+//Espaço reservado para INFORMAR procedimentos, variáveis, constantes...
 interface
 
+//Espaço para definição das bibliotecas externas a ESTA UNIT  Que serão usadas na definição da interface
+//(muitas dinamicamente alocadas pelo Delphi, outras precisam ser declaradas)
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids,
@@ -9,6 +13,8 @@ uses
   System.Actions, Vcl.ActnList, Vcl.ImgList, Vcl.PlatformDefaultStyleActnCtrls,
   Datasnap.DBClient;
 
+//Responsável pela definição dos Objetos da UNIT. Incluindo a Classe do formulário
+//Funções, Variáveis, Constantes do formulário
 type
   TfrmCadastroSimples = class(TForm)
     dsTabela: TDataSource;
@@ -20,7 +26,7 @@ type
     tsbPesquisa: TTabSheet;
     ilCadastro: TImageList;
     dbgrd2: TDBGrid;
-    dbgrd1: TDBGrid;
+    dbgrdDados: TDBGrid;
     actmgrCadastro: TActionManager;
     actInserir: TAction;
     actEditar: TAction;
@@ -30,6 +36,18 @@ type
     actPesquisar: TAction;
     actImprimir: TAction;
     actFechar: TAction;
+    lbl1: TLabel;
+    edtPesquisar: TEdit;
+    btnFiltrar: TButton;
+    actlst1: TActionList;
+    actInserir1: TAction;
+    actEditar1: TAction;
+    actExcluir1: TAction;
+    actSalvar1: TAction;
+    actCancelar1: TAction;
+    actPesquisar1: TAction;
+    actImprimir1: TAction;
+    actFechar1: TAction;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actInserirExecute(Sender: TObject);
     procedure actPesquisarExecute(Sender: TObject);
@@ -46,26 +64,50 @@ type
     procedure actSalvarUpdate(Sender: TObject);
     procedure actSalvarExecute(Sender: TObject);
     procedure actExcluirExecute(Sender: TObject);
+    procedure actEditarExecute(Sender: TObject);
+  //Objetos, métodos e campos de dados declarados em 'private' só poderão ser acessados na própria Unit
   private
     { Private declarations }
+    procedure LimparTudo;
+  //Objetos, métodos e campos declarados em 'public' podem ser acessados por outras Units
   public
     { Public declarations }
   end;
 
+//declaração de variáveis publicas da Unit, além de instanciação de outros formulários(Externos)
 var
   frmCadastroSimples: TfrmCadastroSimples;
 
+//sessão reservada para o desenvolvimento das funcionalidades dos métodos declarados
 implementation
 
+//uses reservada para declaração de bibliotecas que serão usadas nas funcionalidades dos métodos
 uses
   dbsistema;
 
+//DIRETIVA DE COMPILAÇÃO
+//Informa o arquivo que contém as configurações do formulário e dos componentes.
+//Possui mesmo nome da Unit mudando apenas extenção
+//(UfrmSistemaFInanceiro.pas   ->   UfrmSistemaFinanceiro.dfm)
 {$R *.dfm}
 
-procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
+
+
+
+// PROCEDURE é onde faz referência a qual componente esta sendo atribuida a função
+//                1
+// PROCEDURE 'TfrmCadastroSimples'... faz referência a Página onde se encontra o elemento
+//                     2
+// PROCEDURE ...'actCancelar...' Objeto em expecifico que a função sera atribuída
+//                     3
+// PROCEDURE ...'...Execute' Expecificação do estado do objeto para atribuição da funcionalidade
+
+//Exemplo abaixo
+//PROCEDURE        1                2        3
+ procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
 begin
-if pgcControl1.ActivePage = tsbCadastro then
-  pgcControl1.ActivePage := tsbPesquisa;
+//função 'LIMPAR TUDO' declarada mais abaixo
+LimparTudo;
 TClientDataSet(dsTabela.DataSet).Cancel;
 
 end;
@@ -74,6 +116,13 @@ procedure TfrmCadastroSimples.actCancelarUpdate(Sender: TObject);
 begin
    actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
    actCancelar.Enabled :=  actSalvar.Enabled = True;
+end;
+
+procedure TfrmCadastroSimples.actEditarExecute(Sender: TObject);
+begin
+  if pgcControl1.ActivePage = tsbPesquisa then
+    pgcControl1.ActivePage := tsbCadastro;
+    TClientDataSet(dsTabela.DataSet).Edit;
 end;
 
 procedure TfrmCadastroSimples.actEditarUpdate(Sender: TObject);
@@ -88,7 +137,7 @@ begin
     begin
       try
         TClientDataSet(dsTabela.DataSet).Delete;
-        TClientDataSet(dsTabela.DataSet).ApplyUpdates;
+        TClientDataSet(dsTabela.DataSet).ApplyUpdates(0);
 
         Application.MessageBox('Registro Excluido com Sucesso!', 'Informação', 0+64);
         TClientDataSet(dsTabela.DataSet).Open;
@@ -130,6 +179,7 @@ procedure TfrmCadastroSimples.actInserirExecute(Sender: TObject);
 begin
  if pgcControl1.ActivePage = tsbPesquisa  then
   pgcControl1.ActivePage := tsbCadastro;
+  if not TClientDataSet(dsTabela.DataSet).Active then
   TClientDataSet(dsTabela.DataSet).Open;
   TClientDataSet(dsTabela.DataSet).Insert;
 end;
@@ -159,11 +209,9 @@ begin
       dsInsert : Application.MessageBox('Registro Inserido com Sucesso!', 'Informação', MB_OK+MB_ICONINFORMATION);
     end;
 
-    if pgcControl1.ActivePage = tsbCadastro then
-      pgcControl1.ActivePage := tsbPesquisa;
 
       //limpar campos
-
+        LimparTudo;
         TClientDataSet(dsTabela.DataSet).Open;
 
   except on E : Exception do
@@ -189,6 +237,20 @@ procedure TfrmCadastroSimples.FormKeyPress(Sender: TObject; var Key: Char);
 begin
 if Key = #27 then
   Close;
+end;
+
+procedure TfrmCadastroSimples.LimparTudo;
+var
+  i: Integer;
+begin
+  for i := 0 to ComponentCount -1 do
+    begin
+      if Components[i] is TCustomEdit then
+        TCustomEdit(Components[i]).Clear;
+    end;
+
+    if pgcControl1.ActivePage = tsbCadastro then
+      pgcControl1.ActivePage := tsbPesquisa;
 end;
 
 procedure TfrmCadastroSimples.tsbPesquisaShow(Sender: TObject);

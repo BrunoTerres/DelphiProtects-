@@ -2,7 +2,7 @@ object frmCadastroSimples: TfrmCadastroSimples
   Left = 0
   Top = 0
   Caption = 'Cadastro'
-  ClientHeight = 299
+  ClientHeight = 394
   ClientWidth = 703
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,14 +17,14 @@ object frmCadastroSimples: TfrmCadastroSimples
   TextHeight = 13
   object stat1: TStatusBar
     Left = 0
-    Top = 280
+    Top = 375
     Width = 703
     Height = 19
     Panels = <>
   end
   object pnl1: TPanel
     Left = 0
-    Top = 232
+    Top = 327
     Width = 703
     Height = 48
     Align = alBottom
@@ -54,15 +54,19 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 0
     Top = 0
     Width = 703
-    Height = 232
-    ActivePage = tsbCadastro
+    Height = 327
+    ActivePage = tsbPesquisa
     Align = alClient
     TabOrder = 2
     object tsbCadastro: TTabSheet
       Caption = 'Cadastro'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 204
       object dbgrd2: TDBGrid
         Left = 0
-        Top = 48
+        Top = 143
         Width = 695
         Height = 156
         Align = alBottom
@@ -81,21 +85,50 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Pesquisa'
       ImageIndex = 1
       OnShow = tsbPesquisaShow
-      object dbgrd1: TDBGrid
+      object lbl1: TLabel
+        Left = 16
+        Top = 3
+        Width = 55
+        Height = 12
+        Caption = 'Pesquisar'
+        Font.Charset = OEM_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Terminal'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object dbgrdDados: TDBGrid
         Left = 0
-        Top = 48
+        Top = 112
         Width = 695
-        Height = 156
+        Height = 187
         Align = alBottom
         DataSource = dsTabela
         DrawingStyle = gdsGradient
         Enabled = False
+        Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+      end
+      object edtPesquisar: TEdit
+        Left = 20
+        Top = 48
+        Width = 189
+        Height = 21
+        TabOrder = 1
+      end
+      object btnFiltrar: TButton
+        Left = 215
+        Top = 46
+        Width = 75
+        Height = 25
+        Caption = 'Filtrar'
+        TabOrder = 2
       end
     end
   end
@@ -107,10 +140,10 @@ object frmCadastroSimples: TfrmCadastroSimples
   object ilCadastro: TImageList
     Height = 32
     Width = 32
-    Left = 312
-    Top = 152
+    Left = 656
+    Top = 24
     Bitmap = {
-      494C010110001800340020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800380020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2768,16 +2801,16 @@ object frmCadastroSimples: TfrmCadastroSimples
             ShortCut = 114
           end
           item
-            Action = actExcluir
-            Caption = '&Excluir'
-            ImageIndex = 15
-            ShortCut = 116
-          end
-          item
             Action = actEditar
             Caption = 'E&ditar'
             ImageIndex = 9
             ShortCut = 115
+          end
+          item
+            Action = actExcluir
+            Caption = '&Excluir'
+            ImageIndex = 15
+            ShortCut = 116
           end
           item
             Caption = '-'
@@ -2790,6 +2823,7 @@ object frmCadastroSimples: TfrmCadastroSimples
           end
           item
             Action = actCancelar
+            Caption = '&Cancelar'
             ImageIndex = 13
             ShortCut = 118
           end
@@ -2820,8 +2854,8 @@ object frmCadastroSimples: TfrmCadastroSimples
         ActionBar = acttb1
       end>
     Images = ilCadastro
-    Left = 392
-    Top = 104
+    Left = 656
+    Top = 88
     StyleName = 'Platform Default'
     object actInserir: TAction
       Caption = 'Inserir'
@@ -2835,6 +2869,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       Enabled = False
       ImageIndex = 9
       ShortCut = 115
+      OnExecute = actEditarExecute
       OnUpdate = actEditarUpdate
     end
     object actExcluir: TAction
@@ -2842,6 +2877,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       Enabled = False
       ImageIndex = 15
       ShortCut = 116
+      OnExecute = actExcluirExecute
       OnUpdate = actExcluirUpdate
     end
     object actSalvar: TAction
@@ -2850,6 +2886,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 12
       ShortCut = 117
       OnExecute = actSalvarExecute
+      OnUpdate = actSalvarUpdate
     end
     object actCancelar: TAction
       Caption = 'Cancelar'
@@ -2871,12 +2908,41 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 14
       ShortCut = 120
       OnExecute = actImprimirExecute
+      OnUpdate = actImprimirUpdate
     end
     object actFechar: TAction
       Caption = 'Fechar'
       ImageIndex = 5
       ShortCut = 16499
       OnExecute = actFecharExecute
+    end
+  end
+  object actlst1: TActionList
+    Left = 344
+    Top = 200
+    object actInserir1: TAction
+      Caption = 'Inserir'
+    end
+    object actEditar1: TAction
+      Caption = 'Editar'
+    end
+    object actExcluir1: TAction
+      Caption = 'Excluir'
+    end
+    object actSalvar1: TAction
+      Caption = 'Salvar'
+    end
+    object actCancelar1: TAction
+      Caption = 'Cancelar'
+    end
+    object actPesquisar1: TAction
+      Caption = 'Pesquisar'
+    end
+    object actImprimir1: TAction
+      Caption = 'Imprimir'
+    end
+    object actFechar1: TAction
+      Caption = 'Fechar'
     end
   end
 end
