@@ -2803,16 +2803,16 @@ object frmCadastroSimples: TfrmCadastroSimples
             ShortCut = 114
           end
           item
-            Action = actExcluir
-            Caption = '&Excluir'
-            ImageIndex = 15
-            ShortCut = 116
-          end
-          item
             Action = actEditar
             Caption = 'E&ditar'
             ImageIndex = 9
             ShortCut = 115
+          end
+          item
+            Action = actExcluir
+            Caption = '&Excluir'
+            ImageIndex = 15
+            ShortCut = 116
           end
           item
             Caption = '-'
@@ -2916,6 +2916,34 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 5
       ShortCut = 16499
       OnExecute = actFecharExecute
+    end
+  end
+  object actlst1: TActionList
+    Left = 344
+    Top = 200
+    object actInserir1: TAction
+      Caption = 'Inserir'
+    end
+    object actEditar1: TAction
+      Caption = 'Editar'
+    end
+    object actExcluir1: TAction
+      Caption = 'Excluir'
+    end
+    object actSalvar1: TAction
+      Caption = 'Salvar'
+    end
+    object actCancelar1: TAction
+      Caption = 'Cancelar'
+    end
+    object actPesquisar1: TAction
+      Caption = 'Pesquisar'
+    end
+    object actImprimir1: TAction
+      Caption = 'Imprimir'
+    end
+    object actFechar1: TAction
+      Caption = 'Fechar'
     end
   end
 end

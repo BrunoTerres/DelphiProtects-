@@ -33,6 +33,15 @@ type
     lbl1: TLabel;
     edtPesquisar: TEdit;
     btnFiltrar: TButton;
+    actlst1: TActionList;
+    actInserir1: TAction;
+    actEditar1: TAction;
+    actExcluir1: TAction;
+    actSalvar1: TAction;
+    actCancelar1: TAction;
+    actPesquisar1: TAction;
+    actImprimir1: TAction;
+    actFechar1: TAction;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actInserirExecute(Sender: TObject);
     procedure actPesquisarExecute(Sender: TObject);
