@@ -50,16 +50,10 @@ type
     actImprimir1: TAction;
     actFechar1: TAction;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure actPesquisarExecute(Sender: TObject);
     procedure actCancelarExecute(Sender: TObject);
-    procedure actCancelarUpdate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure tsbPesquisaShow(Sender: TObject);
-    procedure actInserirUpdate(Sender: TObject);
-    procedure actExcluirUpdate(Sender: TObject);
     procedure actEditarUpdate(Sender: TObject);
-    procedure actImprimirUpdate(Sender: TObject);
-    procedure actSalvarUpdate(Sender: TObject);
     procedure actInserir1Execute(Sender: TObject);
     procedure actEditar1Execute(Sender: TObject);
     procedure actExcluir1Execute(Sender: TObject);
@@ -68,6 +62,13 @@ type
     procedure actPesquisar1Execute(Sender: TObject);
     procedure actImprimir1Execute(Sender: TObject);
     procedure actFechar1Execute(Sender: TObject);
+    procedure actEditar1Update(Sender: TObject);
+    procedure actInserir1Update(Sender: TObject);
+    procedure actExcluir1Update(Sender: TObject);
+    procedure actSalvar1Update(Sender: TObject);
+    procedure actCancelar1Update(Sender: TObject);
+    procedure actPesquisarUpdate(Sender: TObject);
+    procedure actImprimir1Update(Sender: TObject);
   //Objetos, métodos e campos de dados declarados em 'private' só poderão ser acessados na própria Unit
   private
     { Private declarations }
@@ -116,6 +117,12 @@ LimparTudo;
 TClientDataSet(dsTabela.DataSet).Cancel;
 end;
 
+procedure TfrmCadastroSimples.actCancelar1Update(Sender: TObject);
+begin
+   actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
+   actCancelar.Enabled :=  actSalvar.Enabled = True;
+end;
+
 procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
 begin
 
@@ -124,12 +131,6 @@ end;
 
 //PRECEDURE mesmo componente e objeto da PROCEDURE ACIMA
 //Mudando apenas o estado do abjeto para ...actCancelar'Update'
-procedure TfrmCadastroSimples.actCancelarUpdate(Sender: TObject);
-begin
-   actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
-   actCancelar.Enabled :=  actSalvar.Enabled = True;
-end;
-
 procedure TfrmCadastroSimples.actEditar1Execute(Sender: TObject);
 begin
   if pgcControl1.ActivePage = tsbPesquisa then
@@ -137,10 +138,15 @@ begin
     TClientDataSet(dsTabela.DataSet).Edit;
 end;
 
-procedure TfrmCadastroSimples.actEditarUpdate(Sender: TObject);
+procedure TfrmCadastroSimples.actEditar1Update(Sender: TObject);
 begin
   if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
     actEditar.Enabled := dsTabela.State in [dsBrowse];
+end;
+
+procedure TfrmCadastroSimples.actEditarUpdate(Sender: TObject);
+begin
+
 end;
 
 //Difinição da função "Excluir" atribuída ao botão 'Excluir' quando Executado(Execute)
@@ -170,7 +176,7 @@ begin
     end;
 end;
 
-procedure TfrmCadastroSimples.actExcluirUpdate(Sender: TObject);
+procedure TfrmCadastroSimples.actExcluir1Update(Sender: TObject);
 begin
   if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
     actExcluir.Enabled := dsTabela.State in [dsBrowse];
@@ -186,7 +192,7 @@ begin
   ShowMessage('Em desenvolvimento!');
 end;
 
-procedure TfrmCadastroSimples.actImprimirUpdate(Sender: TObject);
+procedure TfrmCadastroSimples.actImprimir1Update(Sender: TObject);
 begin
   if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
     actImprimir.Enabled := dsTabela.State in [dsBrowse];
@@ -201,7 +207,7 @@ begin
     TClientDataSet(dsTabela.DataSet).Insert;
 end;
 
-procedure TfrmCadastroSimples.actInserirUpdate(Sender: TObject);
+procedure TfrmCadastroSimples.actInserir1Update(Sender: TObject);
 begin
   actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
 end;
@@ -212,7 +218,7 @@ begin
   TClientDataSet(dsTabela.DataSet).Open;
 end;
 
-procedure TfrmCadastroSimples.actPesquisarExecute(Sender: TObject);
+procedure TfrmCadastroSimples.actPesquisarUpdate(Sender: TObject);
 begin
 
 end;
@@ -240,7 +246,7 @@ begin
   end
 end;
 
-procedure TfrmCadastroSimples.actSalvarUpdate(Sender: TObject);
+procedure TfrmCadastroSimples.actSalvar1Update(Sender: TObject);
 begin
   actSalvar.Enabled := dsTabela.State in [dsInsert,dsEdit];
 end;

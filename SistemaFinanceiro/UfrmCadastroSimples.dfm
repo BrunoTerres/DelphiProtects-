@@ -81,6 +81,8 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Pesquisa'
       ImageIndex = 1
       OnShow = tsbPesquisaShow
+      ExplicitLeft = 7
+      ExplicitTop = 23
       object lbl1: TLabel
         Left = 16
         Top = 3
@@ -2857,7 +2859,6 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Inserir'
       ImageIndex = 3
       ShortCut = 114
-      OnUpdate = actInserirUpdate
     end
     object actEditar: TAction
       Caption = 'Editar'
@@ -2871,14 +2872,12 @@ object frmCadastroSimples: TfrmCadastroSimples
       Enabled = False
       ImageIndex = 15
       ShortCut = 116
-      OnUpdate = actExcluirUpdate
     end
     object actSalvar: TAction
       Caption = 'Salvar'
       Enabled = False
       ImageIndex = 12
       ShortCut = 117
-      OnUpdate = actSalvarUpdate
     end
     object actCancelar: TAction
       Caption = 'Cancelar'
@@ -2886,20 +2885,18 @@ object frmCadastroSimples: TfrmCadastroSimples
       ImageIndex = 13
       ShortCut = 118
       OnExecute = actCancelarExecute
-      OnUpdate = actCancelarUpdate
     end
     object actPesquisar: TAction
       Caption = 'Pesquisar'
       ImageIndex = 10
       ShortCut = 112
-      OnExecute = actPesquisarExecute
+      OnUpdate = actPesquisarUpdate
     end
     object actImprimir: TAction
       Caption = 'Imprimir'
       Enabled = False
       ImageIndex = 14
       ShortCut = 120
-      OnUpdate = actImprimirUpdate
     end
     object actFechar: TAction
       Caption = 'Fechar'
@@ -2913,22 +2910,27 @@ object frmCadastroSimples: TfrmCadastroSimples
     object actInserir1: TAction
       Caption = 'Inserir'
       OnExecute = actInserir1Execute
+      OnUpdate = actInserir1Update
     end
     object actEditar1: TAction
       Caption = 'Editar'
       OnExecute = actEditar1Execute
+      OnUpdate = actEditar1Update
     end
     object actExcluir1: TAction
       Caption = 'Excluir'
       OnExecute = actExcluir1Execute
+      OnUpdate = actExcluir1Update
     end
     object actSalvar1: TAction
       Caption = 'Salvar'
       OnExecute = actSalvar1Execute
+      OnUpdate = actSalvar1Update
     end
     object actCancelar1: TAction
       Caption = 'Cancelar'
       OnExecute = actCancelar1Execute
+      OnUpdate = actCancelar1Update
     end
     object actPesquisar1: TAction
       Caption = 'Pesquisar'
@@ -2937,6 +2939,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     object actImprimir1: TAction
       Caption = 'Imprimir'
       OnExecute = actImprimir1Execute
+      OnUpdate = actImprimir1Update
     end
     object actFechar1: TAction
       Caption = 'Fechar'
