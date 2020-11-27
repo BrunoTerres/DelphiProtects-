@@ -105,7 +105,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Top = 0
     Width = 703
     Height = 327
-    ActivePage = tsbCadastro
+    ActivePage = tsbPesquisar
     Align = alClient
     TabOrder = 2
     object tsbCadastro: TTabSheet
@@ -159,6 +159,10 @@ object frmCadastroSimples: TfrmCadastroSimples
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
       end
+    end
+    object tsbPesquisar: TTabSheet
+      Caption = 'tsbPesquisar'
+      ImageIndex = 2
     end
   end
   object dsTabela: TDataSource

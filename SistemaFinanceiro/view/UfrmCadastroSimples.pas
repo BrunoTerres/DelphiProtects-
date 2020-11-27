@@ -47,6 +47,7 @@ type
     btnFechar: TSpeedButton;
     btnPesquisar: TSpeedButton;
     tsbPesquisa: TTabSheet;
+    tsbPesquisar: TTabSheet;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actCancelarExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
