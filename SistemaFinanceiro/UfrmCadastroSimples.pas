@@ -11,7 +11,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids,
   Vcl.ComCtrls, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ExtCtrls, Data.DB,
   System.Actions, Vcl.ActnList, Vcl.ImgList, Vcl.PlatformDefaultStyleActnCtrls,
-  Datasnap.DBClient;
+  Datasnap.DBClient, Vcl.Buttons;
 
 //Responsável pela definição dos Objetos da UNIT. Incluindo a Classe do formulário
 //Funções, Variáveis, Constantes do formulário
@@ -21,26 +21,15 @@ type
     dsTabela: TDataSource;
     stat1: TStatusBar;
     pnl1: TPanel;
-    acttb1: TActionToolBar;
     pgcControl1: TPageControl;
     tsbCadastro: TTabSheet;
     tsbPesquisa: TTabSheet;
     ilCadastro: TImageList;
-    dbgrd2: TDBGrid;
     dbgrdDados: TDBGrid;
-    actmgrCadastro: TActionManager;
-    actInserir: TAction;
-    actEditar: TAction;
-    actExcluir: TAction;
-    actSalvar: TAction;
-    actCancelar: TAction;
-    actPesquisar: TAction;
-    actImprimir: TAction;
-    actFechar: TAction;
     lbl1: TLabel;
     edtPesquisar: TEdit;
     btnFiltrar: TButton;
-    actlst1: TActionList;
+    actlstAcoes: TActionList;
     actInserir1: TAction;
     actEditar1: TAction;
     actExcluir1: TAction;
@@ -49,6 +38,15 @@ type
     actPesquisar1: TAction;
     actImprimir1: TAction;
     actFechar1: TAction;
+    btnInserir: TSpeedButton;
+    btn1: TSpeedButton;
+    btnEditar: TSpeedButton;
+    btnExcluir: TSpeedButton;
+    btnSalvar: TSpeedButton;
+    btnCancelar: TSpeedButton;
+    btnImprimir: TSpeedButton;
+    btnFechar: TSpeedButton;
+    btnPesquisar: TSpeedButton;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actCancelarExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -119,8 +117,8 @@ end;
 
 procedure TfrmCadastroSimples.actCancelar1Update(Sender: TObject);
 begin
-   actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
-   actCancelar.Enabled :=  actSalvar.Enabled = True;
+   actInserir1.Enabled := dsTabela.State in [dsBrowse,dsInactive];
+   actCancelar1.Enabled :=  actSalvar1.Enabled = True;
 end;
 
 procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
@@ -141,7 +139,7 @@ end;
 procedure TfrmCadastroSimples.actEditar1Update(Sender: TObject);
 begin
   if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
-    actEditar.Enabled := dsTabela.State in [dsBrowse];
+    actEditar1.Enabled := dsTabela.State in [dsBrowse];
 end;
 
 procedure TfrmCadastroSimples.actEditarUpdate(Sender: TObject);
@@ -179,7 +177,7 @@ end;
 procedure TfrmCadastroSimples.actExcluir1Update(Sender: TObject);
 begin
   if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
-    actExcluir.Enabled := dsTabela.State in [dsBrowse];
+    actExcluir1.Enabled := dsTabela.State in [dsBrowse];
 end;
 
 procedure TfrmCadastroSimples.actFechar1Execute(Sender: TObject);
@@ -195,7 +193,7 @@ end;
 procedure TfrmCadastroSimples.actImprimir1Update(Sender: TObject);
 begin
   if (dsTabela.State in [dsBrowse]) and (not TClientDataSet(dsTabela.DataSet).IsEmpty) then
-    actImprimir.Enabled := dsTabela.State in [dsBrowse];
+    actImprimir1.Enabled := dsTabela.State in [dsBrowse];
 end;
 
 procedure TfrmCadastroSimples.actInserir1Execute(Sender: TObject);
@@ -209,7 +207,7 @@ end;
 
 procedure TfrmCadastroSimples.actInserir1Update(Sender: TObject);
 begin
-  actInserir.Enabled := dsTabela.State in [dsBrowse,dsInactive];
+  actInserir1.Enabled := dsTabela.State in [dsBrowse,dsInactive];
 end;
 
 procedure TfrmCadastroSimples.actPesquisar1Execute(Sender: TObject);
@@ -248,7 +246,7 @@ end;
 
 procedure TfrmCadastroSimples.actSalvar1Update(Sender: TObject);
 begin
-  actSalvar.Enabled := dsTabela.State in [dsInsert,dsEdit];
+  actSalvar1.Enabled := dsTabela.State in [dsInsert,dsEdit];
 end;
 
 procedure TfrmCadastroSimples.FormClose(Sender: TObject;
