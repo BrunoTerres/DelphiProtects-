@@ -48,6 +48,7 @@ object DataModule1: TDataModule1
     Top = 24
   end
   object sdscaixa: TSQLDataSet
+    Active = True
     CommandText = 'select * from "caixa"'
     MaxBlobSize = -1
     Params = <>
@@ -172,6 +173,7 @@ object DataModule1: TDataModule1
     end
   end
   object sdscontas_receber: TSQLDataSet
+    Active = True
     CommandText = 'select * from  "contas_receber"'
     MaxBlobSize = -1
     Params = <>
@@ -241,6 +243,7 @@ object DataModule1: TDataModule1
     end
   end
   object sdsusuarios: TSQLDataSet
+    Active = True
     CommandText = 'select * from  "usuarios"'
     MaxBlobSize = -1
     Params = <>
@@ -283,7 +286,8 @@ object DataModule1: TDataModule1
       Size = 1
     end
     object cdsusuariosdt_cadastro: TDateField
-      FieldName = 'Data de Cadastro'
+      FieldName = 'dt_cadastro'
+      DisplayFormat = 'dt_cadastro'
     end
   end
 end

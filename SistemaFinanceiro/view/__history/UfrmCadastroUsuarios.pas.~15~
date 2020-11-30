@@ -1,0 +1,26 @@
+unit UfrmCadastroUsuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls;
+
+type
+  TfrmCadastroUsuarios = class(TForm)
+    statCadastroUsuarios: TStatusBar;
+    tmrCadastroUsuarios: TTimer;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroUsuarios: TfrmCadastroUsuarios;
+
+implementation
+
+{$R *.dfm}
+
+end.

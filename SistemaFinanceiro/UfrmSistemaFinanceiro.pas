@@ -37,10 +37,12 @@ type
     lblRecebimentos: TLabel;
     stat1: TStatusBar;
     tmr1: TTimer;
+    btnCadastroUsuario: TButton;
     procedure btnUsuarioClick(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure imgUsuarioClick(Sender: TObject);
+    procedure btnCadastroUsuarioClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,6 +61,16 @@ uses
 {$R *.dfm}
 
 //chamando formulario por botao
+procedure TSistemaFinanceiro.btnCadastroUsuarioClick(Sender: TObject);
+begin
+  frmCadastroUsuarios := TfrmCadastroUsuarios.Create(nil);
+  try
+    frmCadastroUsuarios.ShowModal;
+  finally
+    FreeAndNil(frmCadastroUsuarios);
+  end;
+end;
+
 procedure TSistemaFinanceiro.btnUsuarioClick(Sender: TObject);
 begin
     frmCadastroSimples := TfrmCadastroSimples.Create(nil);
@@ -81,12 +93,15 @@ end;
 
 procedure TSistemaFinanceiro.imgUsuarioClick(Sender: TObject);
 begin
-  frmCadastroUsuarios := TfrmCadastroUsuarios.Create(nil);
+ // frmCadastroUsuarios := TCadastroUsuarios.Create(nil);
+
+
+  {frmCadastroUsuarios := TfrmCadastroUsuarios.Create(nil);
     try
       frmCadastroUsuarios.ShowModal;
     finally
       FreeAndNil(frmCadastroUsuarios);
-    end;
+    end;}
 end;
 
 procedure TSistemaFinanceiro.tmr1Timer(Sender: TObject);

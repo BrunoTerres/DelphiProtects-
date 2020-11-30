@@ -20,7 +20,9 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 80
     Width = 68
     Height = 73
+    Cursor = crHandPoint
     Hint = 'Cadastro de Usu'#225'rio'
+    DragCursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -182,7 +184,9 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 80
     Width = 65
     Height = 73
+    Cursor = crHandPoint
     Hint = 'Receber Conta'
+    DragCursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -347,7 +351,9 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 224
     Width = 65
     Height = 73
+    Cursor = crHandPoint
     Hint = 'Lan'#231'amentos no Caixa'
+    DragCursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -489,6 +495,8 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 224
     Width = 65
     Height = 73
+    Cursor = crHandPoint
+    DragCursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -665,6 +673,8 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 224
     Width = 65
     Height = 73
+    Cursor = crHandPoint
+    DragCursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -819,11 +829,13 @@ object SistemaFinanceiro: TSistemaFinanceiro
     ShowHint = False
   end
   object lblUsuarios: TLabel
-    Left = 64
-    Top = 168
+    Left = 78
+    Top = 8
     Width = 70
     Height = 24
+    Cursor = crHandPoint
     Caption = 'Usuarios'
+    DragCursor = crHandPoint
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -838,8 +850,10 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 168
     Width = 67
     Height = 24
+    Cursor = crHandPoint
     Align = alCustom
     Caption = 'Receber'
+    DragCursor = crHandPoint
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -854,8 +868,10 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 312
     Width = 111
     Height = 48
+    Cursor = crHandPoint
     Align = alCustom
     Caption = 'Lan'#231'amentos'#13#10'     Caixa'
+    DragCursor = crHandPoint
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -866,12 +882,14 @@ object SistemaFinanceiro: TSistemaFinanceiro
     ShowHint = False
   end
   object lblConsultaPagamentos: TLabel
-    Left = 211
+    Left = 209
     Top = 312
     Width = 117
     Height = 48
+    Cursor = crHandPoint
     Align = alCustom
     Caption = '    Consulta'#13#10'Recebimentos'
+    DragCursor = crHandPoint
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -886,8 +904,10 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 312
     Width = 102
     Height = 48
+    Cursor = crHandPoint
     Align = alCustom
     Caption = '  Consulta '#13#10'Pagamentos'
+    DragCursor = crHandPoint
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -902,6 +922,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 472
     Width = 70
     Height = 73
+    Cursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1002,6 +1023,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 472
     Width = 65
     Height = 73
+    Cursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1100,6 +1122,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 472
     Width = 65
     Height = 73
+    Cursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1264,6 +1287,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 680
     Width = 70
     Height = 73
+    Cursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1420,6 +1444,7 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 688
     Width = 65
     Height = 73
+    Cursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -1767,7 +1792,9 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 80
     Width = 65
     Height = 73
+    Cursor = crHandPoint
     Hint = 'Cadastro de Contas a Pagar'
+    DragCursor = crHandPoint
     ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
@@ -2008,8 +2035,10 @@ object SistemaFinanceiro: TSistemaFinanceiro
     Top = 168
     Width = 47
     Height = 24
+    Cursor = crHandPoint
     Align = alCustom
     Caption = 'Pagar'
+    DragCursor = crHandPoint
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -2020,8 +2049,8 @@ object SistemaFinanceiro: TSistemaFinanceiro
     ShowHint = False
   end
   object btnUsuario: TButton
-    Left = 453
-    Top = 649
+    Left = 398
+    Top = 609
     Width = 75
     Height = 25
     Caption = 'btnUsuario'
@@ -2037,6 +2066,15 @@ object SistemaFinanceiro: TSistemaFinanceiro
       item
         Width = 50
       end>
+  end
+  object btnCadastroUsuario: TButton
+    Left = 37
+    Top = 171
+    Width = 124
+    Height = 25
+    Caption = 'Cadastro de Usuario'
+    TabOrder = 2
+    OnClick = btnCadastroUsuarioClick
   end
   object tmr1: TTimer
     OnTimer = tmr1Timer

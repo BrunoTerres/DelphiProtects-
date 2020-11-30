@@ -47,7 +47,6 @@ type
     btnFechar: TSpeedButton;
     btnPesquisar: TSpeedButton;
     tsbPesquisa: TTabSheet;
-    tsbPesquisar: TTabSheet;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure actCancelarExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -65,9 +64,10 @@ type
     procedure actInserir1Update(Sender: TObject);
     procedure actExcluir1Update(Sender: TObject);
     procedure actSalvar1Update(Sender: TObject);
-    procedure actCancelar1Update(Sender: TObject);
-   // procedure actPesquisarUpdate(Sender: TObject);
+    //procedure actPesquisarUpdate(Sender: TObject);
     procedure actImprimir1Update(Sender: TObject);
+    procedure actCancelar1Update(Sender: TObject);
+    procedure actPesquisar1Update(Sender: TObject);
   //Objetos, métodos e campos de dados declarados em 'private' só poderão ser acessados na própria Unit
   private
     { Private declarations }
@@ -118,8 +118,10 @@ end;
 
 procedure TfrmCadastroSimples.actCancelar1Update(Sender: TObject);
 begin
-   actInserir1.Enabled := dsTabela.State in [dsBrowse,dsInactive];
-   actCancelar1.Enabled :=  actSalvar1.Enabled = True;
+  if pgcControl1.ActivePage = tsbPesquisa then
+    //actInserir1.Enabled := dsTabela.State in [dsBrowse,dsInactive];
+    //actCancelar1.Enabled :=  actSalvar1.Enabled = False;
+    pgcControl1.ActivePage := tsbPesquisa;
 end;
 
 procedure TfrmCadastroSimples.actCancelarExecute(Sender: TObject);
@@ -199,11 +201,13 @@ end;
 
 procedure TfrmCadastroSimples.actInserir1Execute(Sender: TObject);
 begin
-  if pgcControl1.ActivePage = tsbPesquisa  then
+  pgcControl1.ActivePage := tsbCadastro;
+  {if pgcControl1.ActivePage = tsbPesquisa then
     pgcControl1.ActivePage := tsbCadastro;
+
   if not TClientDataSet(dsTabela.DataSet).Active then
     TClientDataSet(dsTabela.DataSet).Open;
-    TClientDataSet(dsTabela.DataSet).Insert;
+    TClientDataSet(dsTabela.DataSet).Insert;}
 end;
 
 procedure TfrmCadastroSimples.actInserir1Update(Sender: TObject);
@@ -213,11 +217,20 @@ end;
 
 procedure TfrmCadastroSimples.actPesquisar1Execute(Sender: TObject);
 begin
+  pgcControl1.ActivePage := tsbPesquisa;
   TClientDataSet(dsTabela.DataSet).Close;
   TClientDataSet(dsTabela.DataSet).Open;
 end;
 
 
+
+procedure TfrmCadastroSimples.actPesquisar1Update(Sender: TObject);
+begin
+  //
+  //TClientDataSet(dsTabela.DataSet).Close;
+  //TClientDataSet(dsTabela.DataSet).Open;
+
+end;
 
 //Checa se o INSERT ou UPDATE funcionaram como deveriam
 procedure TfrmCadastroSimples.actSalvar1Execute(Sender: TObject);

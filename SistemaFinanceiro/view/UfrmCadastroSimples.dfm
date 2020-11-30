@@ -105,7 +105,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Top = 0
     Width = 703
     Height = 327
-    ActivePage = tsbPesquisar
+    ActivePage = tsbCadastro
     Align = alClient
     TabOrder = 2
     object tsbCadastro: TTabSheet
@@ -160,10 +160,6 @@ object frmCadastroSimples: TfrmCadastroSimples
         TitleFont.Style = []
       end
     end
-    object tsbPesquisar: TTabSheet
-      Caption = 'tsbPesquisar'
-      ImageIndex = 2
-    end
   end
   object dsTabela: TDataSource
     DataSet = DataModule1.cdscaixa
@@ -176,7 +172,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 656
     Top = 24
     Bitmap = {
-      494C010110001800440020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800500020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2825,8 +2821,8 @@ object frmCadastroSimples: TfrmCadastroSimples
   end
   object actlstAcoes: TActionList
     Images = ilCadastro
-    Left = 344
-    Top = 200
+    Left = 648
+    Top = 96
     object actInserir1: TAction
       Caption = 'Inserir'
       ImageIndex = 3
@@ -2861,6 +2857,7 @@ object frmCadastroSimples: TfrmCadastroSimples
       Caption = 'Pesquisar'
       ImageIndex = 10
       OnExecute = actPesquisar1Execute
+      OnUpdate = actPesquisar1Update
     end
     object actImprimir1: TAction
       Caption = 'Imprimir'
