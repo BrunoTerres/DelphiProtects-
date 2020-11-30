@@ -1,4 +1,4 @@
-object DataModule1: TDataModule1
+object dmDados: TdmDados
   OldCreateOrder = False
   Height = 551
   Width = 640
@@ -257,6 +257,7 @@ object DataModule1: TDataModule1
     Top = 480
   end
   object cdsusuarios: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspusuarios'
@@ -264,6 +265,7 @@ object DataModule1: TDataModule1
     Top = 480
     object intgrfldcdsusuariosid: TIntegerField
       FieldName = 'Id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object strngfldcdsusuariosnome: TStringField

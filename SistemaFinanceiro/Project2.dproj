@@ -90,7 +90,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="dbsistema.pas">
-            <Form>DataModule1</Form>
+            <Form>dmDados</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>

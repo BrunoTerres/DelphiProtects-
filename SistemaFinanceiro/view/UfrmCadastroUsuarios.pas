@@ -16,6 +16,7 @@ type
     edtNome: TEdit;
     edtLogin: TEdit;
     edtSenha: TEdit;
+    procedure actSalvar1Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,6 +28,42 @@ var
 
 implementation
 
+uses
+  dbsistema;
+
 {$R *.dfm}
+
+procedure TfrmCadastroUsuarios.actSalvar1Execute(Sender: TObject);
+begin
+  //Checa se o campo 'edtNome' esta vazio
+  if Trim(edtNome.Text) = '' then
+    begin
+      //Caso vazio, retorna a mensagem Preencha o campo...
+      Application.MessageBox('Preencha o campo Nome!', 'Atenção', MB_OK+MB_ICONWARNING);
+      //Coloca o cursor no campo em questao
+      edtNome.SetFocus;
+      Abort;
+    end;
+
+  if Trim(edtSenha.Text) = '' then
+    begin
+      Application.MessageBox('Preencha o campo Senha!', 'Atenção', MB_OK+MB_ICONWARNING);
+      edtSenha.SetFocus;
+      Abort;
+    end;
+
+  if Trim(edtLogin.Text) = '' then
+    begin
+      Application.MessageBox('Preencha o campo Login!', 'Atenção', MB_OK+MB_ICONWARNING);
+      edtLogin.SetFocus;
+      Abort;
+    end;
+
+  dmDados.strngfldcdsusuariosnome.AsString :=  Trim(edtNome.Text);
+  dmDados.strngfldcdsusuarioslogin.AsString :=  Trim(edtLogin.Text);
+  dmDados.strngfldcdsusuariossenha.AsString :=  Trim(edtSenha.Text);
+  inherited;
+
+end;
 
 end.

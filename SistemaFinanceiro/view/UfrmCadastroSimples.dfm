@@ -158,6 +158,37 @@ object frmCadastroSimples: TfrmCadastroSimples
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'id'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'numero_doc'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'descricao'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'valor'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'tipo'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'dt_cadastro'
+            Visible = True
+          end>
       end
     end
   end

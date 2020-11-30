@@ -201,13 +201,14 @@ end;
 
 procedure TfrmCadastroSimples.actInserir1Execute(Sender: TObject);
 begin
-  pgcControl1.ActivePage := tsbCadastro;
-  {if pgcControl1.ActivePage = tsbPesquisa then
+
+  if pgcControl1.ActivePage = tsbPesquisa then
     pgcControl1.ActivePage := tsbCadastro;
+    //pgcControl1.ActivePage := tsbCadastro;
 
   if not TClientDataSet(dsTabela.DataSet).Active then
     TClientDataSet(dsTabela.DataSet).Open;
-    TClientDataSet(dsTabela.DataSet).Insert;}
+    TClientDataSet(dsTabela.DataSet).Insert;
 end;
 
 procedure TfrmCadastroSimples.actInserir1Update(Sender: TObject);

@@ -1,0 +1,112 @@
+inherited frmCadastroUsuarios: TfrmCadastroUsuarios
+  Caption = 'Cadastro Usu'#225'rios'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pgcControl1: TPageControl
+    ActivePage = tsbPesquisa
+    inherited tsbCadastro: TTabSheet
+      object lblNome: TLabel
+        Left = 20
+        Top = 32
+        Width = 45
+        Height = 16
+        Caption = 'Nome'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'System'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblLogin: TLabel
+        Left = 20
+        Top = 72
+        Width = 36
+        Height = 16
+        Caption = 'Login'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'System'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblSenha: TLabel
+        Left = 20
+        Top = 112
+        Width = 41
+        Height = 25
+        Caption = 'Senha'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'System'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object edtNome: TEdit
+        Left = 104
+        Top = 31
+        Width = 177
+        Height = 21
+        MaxLength = 50
+        TabOrder = 0
+      end
+      object edtLogin: TEdit
+        Left = 104
+        Top = 71
+        Width = 177
+        Height = 21
+        MaxLength = 20
+        TabOrder = 1
+      end
+      object edtSenha: TEdit
+        Left = 104
+        Top = 111
+        Width = 177
+        Height = 21
+        MaxLength = 20
+        PasswordChar = '*'
+        TabOrder = 2
+      end
+    end
+    inherited tsbPesquisa: TTabSheet
+      inherited dbgrdDados: TDBGrid
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Id'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Nome'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Login'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Senha'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Status'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'dt_cadastro'
+            Visible = True
+          end>
+      end
+    end
+  end
+  inherited dsTabela: TDataSource
+    DataSet = dmDados.cdsusuarios
+  end
+end
