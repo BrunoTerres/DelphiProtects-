@@ -1,0 +1,53 @@
+{1}    'update clientes set ' +
+                           {2}    'nome = :nome, ' +
+                           {3}    'nomefantasia = :nomefantasia, ' +
+                           {4}    'cep = :cep, ' +
+                           {5}    'estado = :estado, ' +
+                           {6}    'cidade = :cidade, ' +
+                           {7}    'bairro = :bairro, ' +
+                           {8}    'endereco = :endereco, ' +
+                           {9}    'numero = :numero, ' +
+                           {10}   'complemento = :complemento, ' +
+                           {11}   'inscricao = :inscricao, ' +
+                           {12}   'telefone = :telefone, ' +
+                           {13}   'celular = :celular, ' +
+                           {14}   //'remal = :ramal, ' +
+                           {15}   //'fax = :fax, ' +
+                           {16}   'regime_tributario = :regime_tributario, ' +
+                           {17}   //'id_grrupo_financeiro = :id_grupo_financeiro, ' +
+                           {18}   'vendedor = :vendedor, ' +
+                           {19}   //'limite = :limite, ' +
+                           {20}   //'condicao_pagamento = :condicao_pagamento, ' +
+                           {21}   //'condicao_pagamento_impostos = :condicao_pagamento_impostos ' +
+                           {22}   //'codigo_ibge = :codigo_ibge, ' +  CAMPO MYSQL INEXISTENTE
+                           {23}   'where cnpj = :cnpj';
+                           {24}
+                           {25}
+
+
+
+            {1}
+            {2}    qryFB2.ParamByName('nome').AsString := Tam(qryMY.FieldByName('razao_social').AsString, 50);
+            {3}    qryFB2.ParamByName('nomefantasia').AsString := Tam(qryMY.FieldByName('nome_fantasia'), 35);
+            {4}    qryFB2.ParamByName('cep').AsString := Tam(cep, 9);
+            {5}    qryFB2.ParamByName('estado').AsString := qryMY.FieldByName('uf').AsString;
+            {6}    qryFB2.ParamByName('cidade').AsString := Tam(qryMY.FieldByName('cidade').AsString, 30);
+            {7}    qryFB2.ParamByName('bairro').AsString := Tam(qryMY.FieldByName('bairro').AsString, 30);
+            {8}    qryFB2.ParamByName('endereco').AsString := Tam(qryMY.FieldByName('endereco').AsString, 50);
+            {9}    qryFB2.ParamByName('numero').AsString := Tam(qryMY.FieldByName('numero').AsString, 5);
+            {10}   qryFB2.ParamByName('complemento').AsString := Tam(qryMY.FieldByName('complemento').AsString, 48);
+            {11}   qryFB2.ParamByName('inscricao').AsString := qryMY.FieldByName('inscricao_estadual').AsString;
+            {12}   qryFB2.ParamByName('telefone').AsString := qryMY.FieldByName('telefone').AsString;
+            {13}   qryFB2.ParamByName('celular').AsString := qryMY.FieldByName('celular').AsString;
+            {14}   //qryFB2.ParamByName('ramal').AsString := qryMY.FieldByName('ramal').AsString;
+            {15}   //qryFB2.ParamByName('fax').AsString := qryMY.FieldByName('fax').AsString;
+            {16}   qryFB2.ParamByName('regime_tributario').AsString := qryMY.FieldByName('regime_tributario').AsString;
+            {17}   //qryFB2.ParamByName('id_grupo_financeiro').AsString := qryMY.FieldByName('id_grupo_financeiro').AsString;
+            {18}   qryFB2.ParamByName('vendedor').AsString := vendedor;
+            {19}   //qryFB2.ParamByName('limite').AsString := qryMY.FieldByName('limite_credito').AsString;
+            {20}   //qryFB2.ParamByName('condicao_pagamento').AsString := qryMY.FieldByName('condicao_pagamento').AsString;
+            {21}   //qryFB2.ParamByName('condicao_pagamento_impostos').AsString := qryMY.FieldByName('condicao_pagamento_impostos').AsString;
+            {22}   //qryFB2.ParamByName('codigo_ibge').AsString := qryMY.FieldByName('ibge').AsString;
+            {23}   qryFB2.ParamByName('cnpj').AsString := cnpj;
+            {24}
+            {25}    qryFB2.Execute;
