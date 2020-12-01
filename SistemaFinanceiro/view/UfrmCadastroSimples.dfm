@@ -172,16 +172,19 @@ object frmCadastroSimples: TfrmCadastroSimples
           item
             Expanded = False
             FieldName = 'descricao'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'valor'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'tipo'
+            Width = 64
             Visible = True
           end
           item
@@ -193,7 +196,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     end
   end
   object dsTabela: TDataSource
-    DataSet = DataModule1.cdscaixa
+    DataSet = dmDados.cdscaixa
     Left = 600
     Top = 24
   end
@@ -203,7 +206,7 @@ object frmCadastroSimples: TfrmCadastroSimples
     Left = 656
     Top = 24
     Bitmap = {
-      494C010110001800500020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800540020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

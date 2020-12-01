@@ -259,6 +259,7 @@ object dmDados: TdmDados
   object cdsusuarios: TClientDataSet
     Active = True
     Aggregates = <>
+    IndexName = 'CHANGEINDEX'
     Params = <>
     ProviderName = 'dspusuarios'
     Left = 284
@@ -287,9 +288,16 @@ object dmDados: TdmDados
       FixedChar = True
       Size = 1
     end
-    object cdsusuariosdt_cadastro: TDateField
+    object dtfld_cadastro: TDateField
       FieldName = 'dt_cadastro'
       DisplayFormat = 'dt_cadastro'
     end
+  end
+  object sqlqryUsuariosGen: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = conMySQL
+    Left = 424
+    Top = 480
   end
 end

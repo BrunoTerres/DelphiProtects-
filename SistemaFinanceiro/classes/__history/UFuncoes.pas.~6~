@@ -1,0 +1,32 @@
+unit UFuncoes;
+
+
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmCadastroSimples, System.Actions,
+  Vcl.ActnList, Vcl.ImgList, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Buttons, System.SysUtils, System.Classes, Data.DBXFirebird, Data.DB, Data.SqlExpr,
+  Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider;
+
+
+implementation
+
+uses
+  dbsistema;
+
+  function GetId(Campo, Tabela : String) : Integer;
+    begin
+      with
+      TSQLQuery.Create(nil) do
+      try
+        SQLConnection := dmDados.SQLConnection;
+        sql.Add('SELECT ' +Campo+ ' FROM ' +Tabela+ ' ORDER BY ' +Campo+ ' DESC LIMIT 1');
+      finally
+
+      end;
+    end;
+
+end.

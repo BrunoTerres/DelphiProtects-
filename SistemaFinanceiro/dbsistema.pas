@@ -56,7 +56,10 @@ type
     strngfldcdsusuarioslogin: TStringField;
     strngfldcdsusuariossenha: TStringField;
     strngfldcdsusuariosstatus: TStringField;
-    cdsusuariosdt_cadastro: TDateField;
+    dtfld_cadastro: TDateField;
+    sqlqryUsuariosGen: TSQLQuery;
+
+    //function ProximoID(GENERATOR: String): Integer;
   private
     { Private declarations }
   public
@@ -71,5 +74,17 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+{ TdmDados }
+
+{function TdmDados.ProximoID(GENERATOR: String): Integer;
+begin
+  sqlqryUsuariosGen.Close;
+  sqlqryUsuariosGen.SQL.Clear;
+  sqlqryUsuariosGen.SQL.Add('SELECT GEN_ID('+QuotedStr(GENERATOR)+', 1) AS ID_ATUAL FROM RDB$DATABASE');
+  sqlqryUsuariosGen.Open;
+  Result:=sqlqryUsuariosGen.FieldByName('ID_ATUAL').AsInteger;
+  sqlqryUsuariosGen.Close;
+end;}
 
 end.

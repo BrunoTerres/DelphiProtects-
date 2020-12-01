@@ -1,10 +1,15 @@
 inherited frmCadastroUsuarios: TfrmCadastroUsuarios
   Caption = 'Cadastro Usu'#225'rios'
+  ExplicitWidth = 719
+  ExplicitHeight = 433
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcControl1: TPageControl
-    ActivePage = tsbPesquisa
     inherited tsbCadastro: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 695
+      ExplicitHeight = 299
       object lblNome: TLabel
         Left = 20
         Top = 32
@@ -71,6 +76,10 @@ inherited frmCadastroUsuarios: TfrmCadastroUsuarios
       end
     end
     inherited tsbPesquisa: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 695
+      ExplicitHeight = 299
       inherited dbgrdDados: TDBGrid
         Columns = <
           item
@@ -111,7 +120,7 @@ inherited frmCadastroUsuarios: TfrmCadastroUsuarios
   end
   inherited ilCadastro: TImageList
     Bitmap = {
-      494C010110001800580020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800680020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A000000001002000000000000040
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

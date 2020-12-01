@@ -5,7 +5,8 @@ uses
   UfrmSistemaFinanceiro in 'UfrmSistemaFinanceiro.pas' {SistemaFinanceiro},
   dbsistema in 'dbsistema.pas' {dmDados: TDataModule},
   UfrmCadastroSimples in 'view\UfrmCadastroSimples.pas' {frmCadastroSimples},
-  UfrmCadastroUsuarios in 'view\UfrmCadastroUsuarios.pas' {frmCadastroUsuarios};
+  UfrmCadastroUsuarios in 'view\UfrmCadastroUsuarios.pas' {frmCadastroUsuarios},
+  UFuncoes in 'classes\UFuncoes.pas';
 
 {$R *.res}
 

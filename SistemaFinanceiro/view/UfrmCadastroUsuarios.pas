@@ -29,7 +29,7 @@ var
 implementation
 
 uses
-  dbsistema;
+  dbsistema, UFuncoes;
 
 {$R *.dfm}
 
@@ -59,11 +59,16 @@ begin
       Abort;
     end;
 
+    //if cdsUsuarios.State = dsInsert then
+
+
+  dmDados.intgrfldcdsusuariosid.AsInteger := GetId('ID', 'USUARIOS');
   dmDados.strngfldcdsusuariosnome.AsString :=  Trim(edtNome.Text);
   dmDados.strngfldcdsusuarioslogin.AsString :=  Trim(edtLogin.Text);
   dmDados.strngfldcdsusuariossenha.AsString :=  Trim(edtSenha.Text);
+  dmDados.strngfldcdsusuariosstatus.AsString :=  'A';
+  //dmDados.dtfld_cadastro.AsDateTime := now;
   inherited;
 
 end;
-
 end.
